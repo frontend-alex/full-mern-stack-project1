@@ -1,0 +1,25 @@
+@import url('./Navbar.css');
+@import url('./Header.css');
+@import url('./Register.css');
+@import url('./MainPage.css');
+@import url('./Error.css');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --mainColor: #6C63FF;
+}
+
+.gray {
+    color: gray;
+}
+
+.purple {
+    color: var(--mainColor);
+}

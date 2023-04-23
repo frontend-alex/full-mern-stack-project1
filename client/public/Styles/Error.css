@@ -1,0 +1,41 @@
+:root{
+    --mainColor: #6C63FF;
+    --circleColor: #6b63ffa6;
+}
+
+.error-page-container {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-page-container img {
+  width: 700px;
+  padding: 50px;
+  height: auto;
+}
+.error-page-container .error-text{
+    padding: 50px;
+}
+.error-page-container .error-text p {
+  color: gray;
+  width: 70%;
+  margin-bottom: 50px;
+}
+
+.error-page-container .error-text a {
+    color: gray;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.error-page-container .error-text a .icon{
+    color:var(--mainColor);
+    margin-right: 10px;
+    font-size: 30px;
+}
+

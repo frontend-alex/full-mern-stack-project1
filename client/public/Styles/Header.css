@@ -1,0 +1,206 @@
+:root{
+    --mainColor: #6C63FF;
+    --circleColor: #6b63ffa6;
+}
+
+
+.main-header-container{
+    position: relative;
+    margin-top: 200px;
+    padding: 0 300px;
+    width: 100%;
+
+    text-align: center;
+}
+
+.main-header-container .header-text h1{
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+.main-header-container .header-text p{
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    width: 50%; 
+}
+
+.flex-header-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+
+    gap: 10px;
+}
+
+.header-input{
+    position: relative;
+}
+
+.header-input .h-input {
+    padding: 15px;
+    width: 300px;
+    border-radius: .5em;
+
+    font-size: 16px;
+
+    outline: none;
+    border: 1px solid gray;
+}
+
+.header-input .h-label{
+    left: 5%;
+    top: 30%;
+    position: absolute;
+    color: var(--mainColor);
+    background-color: white;
+}
+
+.header-input .h-input:focus ~ .h-label{
+    transform: translateY(-30px);
+    transition: .4s ease-in-out;
+}
+
+.flex-header-input .header-btn{
+    width: 120px;
+    height: 57px;
+    
+    border-radius: .5em;
+    border: none;
+    background-color: var(--mainColor);
+    color: white;
+
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+.flex-header-input .header-btn:hover{
+    background-color: transparent;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+}
+
+
+
+
+.header-remeasuring{
+    position: relative;
+    height: 30vh;
+    display: flex;
+}
+
+
+.header-cards-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.header-cards-container .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--circleColor);
+    position: absolute;
+}
+
+.header-cards-container .circle:nth-child(1){
+    left: 0%;
+    top: 5%;
+}
+.header-cards-container .circle:nth-child(2){
+    left: 40%;
+    top: 25%;
+}
+.header-cards-container .circle:nth-child(3){
+    left: 90%;
+    top: 55%;
+}
+
+
+
+.header-cards-container .header-card{
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+
+    cursor: pointer;
+
+    border-radius: .5em;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-cards-container .header-card:hover{
+    transition: .4s ease-in-out;
+    transform: translateY(-30px);
+}
+
+
+.header-cards-container .header-card img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    margin: 0;
+}
+
+.header-cards-container .header-card h1{
+    margin: 0;
+    color: gray;
+}
+
+
+@media screen and (max-width: 1200px){
+    .main-header-container{
+        padding: 0 100px;
+    }   
+    .header-cards-container .circle{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 500px)  and (max-width: 700px){
+    .header-input .h-input{
+        width: 200px;
+    }
+    .main-header-container .header-text h1{
+        font-size: 30px;
+    }
+    .main-header-container .header-text p{
+        width: 100%;
+    }
+    .header-input .h-label{
+        font-size:15px;
+    }
+}
+
+
+@media screen and (max-width: 500px){
+    .header-input .h-input{
+        width: 200px;
+    }
+    .main-header-container .header-text h1{
+        font-size: 30px;
+    }
+    .main-header-container .header-text p{
+        width: 100%;
+    }
+    .header-input .h-label{
+        font-size:15px;
+    }
+    .main-header-container{
+        padding: 0 20px;
+    }  
+}
