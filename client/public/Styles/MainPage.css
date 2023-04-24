@@ -9,6 +9,9 @@
     width: 100%;
     z-index: 3;
     background-color: white;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 /* sidebar ****************************/
@@ -79,7 +82,7 @@
 
 
 .sidebar-container .sidebar-account-data img{
-    height: auto;
+    height: 70px;
     width: 70px;
     border-radius: 50%;
     cursor: pointer;
@@ -188,3 +191,69 @@
 
 
 /* sidebar ******************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* main-page data ******************************/
+
+.dashboard-data{
+    width: 60%;
+    padding: 20px;
+}
+
+.dashboard-data .card-1{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+}
+.dashboard-data .card-1 img{
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.dashboard-data .card-1 .dashboard-data-user-crednetials p{
+    color: gray;
+}
+
+/* main-page data ******************************/
+
+
+/* main-page accessories ************************/
+
+.dashboard-accessories{
+    width: 20%;
+}
+
+/* main-page accesories *************************/
+
+
+
+@media screen and (max-width:1200px) {
+    .main-page-container{
+        display: block;
+    }
+}

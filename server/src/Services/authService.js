@@ -6,7 +6,7 @@ exports.getUser = (email) => User.findOne({ email });
 
 exports.getUsername = (username) => User.findOne({ username });
 
-exports.register = (username, email, password, userPfp) => User.create({ username, email, password, userPfp });
+exports.register = (username, email, password, userPfp, bio) => User.create({ username, email, password, userPfp, bio });
 
 exports.login = async (email, password) => {
     
@@ -25,7 +25,9 @@ exports.login = async (email, password) => {
     const payload = {
         _id       : existingUser._id,
         username  : existingUser.username,
-        email     : existingUser.email
+        email     : existingUser.email,
+        userPfp   : existingUser.userPfp,
+        bio       : existingUser.bio
     }
 
     const token = await jwt.sign(payload, secret);

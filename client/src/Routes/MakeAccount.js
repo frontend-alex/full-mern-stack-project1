@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Login from '../Components/Register/Login';
 import Register from '../Components/Register/Register';
 
-const MakeAccount = () => {
+const MakeAccount = ({ user }) => {
 
-    const [ toggle, setToggle ] = useState(true);
+    const [ toggle, setToggle ] = useState(user == '' ? true : false);
 
   return (
     <div className='make-account-container'>

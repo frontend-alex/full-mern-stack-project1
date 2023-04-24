@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import img from '../assests/images/error-img.png'
 
-const ErrorPage = () => {
+const ErrorPage = ({ user }) => {
   return (
     <div className="error-page-container">
       <div className="error-image">
@@ -18,7 +18,7 @@ const ErrorPage = () => {
           Try one of these links to get back on track.
         </p>
 
-        <Link to='/'><IoReturnDownBackOutline className="icon"/>Go back</Link>
+        <Link to={!user ? `/` : `/dashboard/${user?.username}` }><IoReturnDownBackOutline className="icon"/>Go back</Link>
       </div>
     </div>
   );

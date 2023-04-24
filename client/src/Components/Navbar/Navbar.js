@@ -45,7 +45,7 @@ const Navbar = () => {
           {user ? (
             <button
               className="button-login"
-              onClick={() => (window.location.href = "/main")}
+              onClick={() => (window.location.href = `/dashboard/${user.username}`)}
             >
               Profile
             </button>

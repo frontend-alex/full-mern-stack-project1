@@ -17,7 +17,10 @@ const UserSchema = new Schema({
     },
     userPfp : {
         type: String,
-    }
+    },
+    bio : {
+        type: String,
+    },
 })
 
 UserSchema.pre("save", async function(next){

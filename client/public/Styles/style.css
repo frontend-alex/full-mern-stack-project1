@@ -3,6 +3,7 @@
 @import url('./Register.css');
 @import url('./MainPage.css');
 @import url('./Error.css');
+@import url('./EditProfile.css');
 
 *{
     padding: 0;

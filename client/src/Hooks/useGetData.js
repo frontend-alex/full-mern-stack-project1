@@ -1,5 +1,6 @@
 const login = 'http://localhost:5000/login'
 const register = 'http://localhost:5000/register'
+const edit = 'http://localhost:5000/edit'
 
 const useGetData = () => {
 
@@ -35,15 +36,26 @@ const useGetData = () => {
           .then((res) => res.json())
       }
     
+
       const logOutUser = () => {
          localStorage.removeItem('auth')
          window.location.reload();
       }
+
+      const updateProfile = ( userPfp, username, bio, userId ) => {
+        return fetch(edit, {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify({ userPfp, username, bio, userId})
+        }).then(res => res.json());
+      }
+
     return {
         postRegister,
         postLogin,
         getToken,
-        logOutUser
+        logOutUser,
+        updateProfile
     };
 
 }

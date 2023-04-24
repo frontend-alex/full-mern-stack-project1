@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 
 import useGetData from "../../Hooks/useGetData";
 
+import { BsDoorOpen } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
 import { RxEyeClosed } from "react-icons/rx";
 import { AiOutlineEye } from "react-icons/ai";
-import { BsDoorOpen } from "react-icons/bs";
 import { IoReturnDownBackOutline } from "react-icons/io5";
 
 import OkToast from "../../Constants/ToastMessages/OkToast";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = ({ setToggle }) => {
+
+  const [ user ] = useAuth();
+
   const { postLogin } = useGetData();
 
   const [togglePass, setTogglePass] = useState(false);
@@ -39,7 +43,7 @@ const Login = ({ setToggle }) => {
 
         setTimeout(() => {
           localStorage.setItem("auth", res.token);
-          window.location.href = '/main'
+          window.location.href = `/dashboard/${user?.username}`
         }, 3000);
       }
     });
@@ -51,6 +55,7 @@ const Login = ({ setToggle }) => {
       {toggleToast && <OkToast text="Successfully login" />}
 
       <div className="data-container">
+
         {/* custom component */}
         <div className="navigation">
           <div className="home-btn">

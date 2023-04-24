@@ -7,6 +7,8 @@ const jwt = require("../utils/jsonwebtoken");
 router.post("/register", async (req, res) => {
 
   const userPfp = ""
+  const bio = ""
+
   const { email, password, username, rePassword } = req.body;
 
   const existingUsername = await authService.getUsername(username);
@@ -32,7 +34,7 @@ router.post("/register", async (req, res) => {
   }
 
   try {
-    const user = await authService.register(username, email, password, userPfp);
+    const user = await authService.register(username, email, password, userPfp, bio);
     res.status(201).json({ status: 201, user });
   } catch (err) {
     const errors = Object.keys(err.errors).map(
