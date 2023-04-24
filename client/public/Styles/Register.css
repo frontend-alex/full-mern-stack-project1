@@ -41,9 +41,8 @@
     width: 50%;
     height: 100vh;
     z-index: 1;
-    background-color: white;
-
 }
+
 
 .register-container .data-container{
     display: flex;
@@ -235,5 +234,18 @@
     }
     .register-container .data-container{
         width: 100%;
+      
+    }
+    .data-container-pos .register-text{
+        width: 300px;
+        text-align: center;
+        margin-top: 150px;
+       
+    }
+    .data-container-pos .input-container input{
+        width: 90%;
+    }
+    .data-container-pos .input-container .button-regi{
+        width: 300px;
     }
 }
