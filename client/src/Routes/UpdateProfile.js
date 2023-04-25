@@ -6,17 +6,18 @@ import { IoReturnDownBackOutline } from "react-icons/io5";
 
 import OkToast from "../Constants/ToastMessages/OkToast";
 
+import userImg from '../assests/images/user.png'
+
 import useGetData from "../Hooks/useGetData";
 
 const UpdateProfile = ({ user }) => {
   const { userId } = useParams();
 
   const [values, setValues] = useState({
-    username: user.username,
-    userPfp:
-      "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    bio: "Hello there, i love...",
+    userPfp: userImg,
+    bio: "Hello there, my name is..",
   });
+
 
   const [error, setError] = useState("");
   const [toast, setToast] = useState(false);
@@ -31,7 +32,7 @@ const UpdateProfile = ({ user }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    updateProfile(values.userPfp, values.username, values.bio, userId).then(
+    updateProfile(values.userPfp, values.bio, userId).then(
       (res) => {
         if (res.status == 404) {
           setError(res.error);
@@ -44,6 +45,7 @@ const UpdateProfile = ({ user }) => {
         }
       },
     );
+
   };
 
   return (
@@ -82,7 +84,7 @@ const UpdateProfile = ({ user }) => {
             <div className="user-preview">
               <img src={values.userPfp} />
               <div className="user-text">
-                <h3>{values.username}</h3>
+                <h3>{user.username}</h3>
                 <span>{values.bio}</span>
               </div>
             </div>

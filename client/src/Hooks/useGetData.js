@@ -42,11 +42,11 @@ const useGetData = () => {
          window.location.reload();
       }
 
-      const updateProfile = ( userPfp, username, bio, userId ) => {
+      const updateProfile = ( userPfp, bio, userId ) => {
         return fetch(edit, {
           method: 'POST',
           headers: headers,
-          body: JSON.stringify({ userPfp, username, bio, userId})
+          body: JSON.stringify({ userPfp, bio, userId})
         }).then(res => res.json());
       }
 

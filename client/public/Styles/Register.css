@@ -70,6 +70,7 @@
     position: absolute;
     top: 0;
     padding: 40px;
+    background-color: white;
 }
 .data-container .navigation .home-btn{
     color: gray;

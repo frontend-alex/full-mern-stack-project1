@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import Sidebar from '../Components/Sidebar/Sidebar'
 import useFetch from '../Hooks/useFetch';
 
+import userImg from '../assests/images/user.png'
+import useGetData from '../Hooks/useGetData';
+
 const MainPage = ({ user }) => {
 
-   const userImg =
-    "https://o.remove.bg/downloads/73b0a066-b871-4962-aff3-6d0086bb1ef1/436-4363443_view-user-icon-png-font-awesome-user-circle-removebg-preview.png";
-
+  const { logOutUser } = useGetData()
+  
   const [ data, error ] = useFetch(`http://localhost:5000/profile/${user._id}`, {})
 
   const { username, bio, userPfp } = data;
@@ -17,7 +19,12 @@ const MainPage = ({ user }) => {
             <Sidebar user={user}/>
         </div>  
         <div className='dashboard-data'>
-          <h1>Good Evening, <span className='purple'> {username}</span></h1>
+          <div className='dashboard-first-thing'>
+            <h1>Good Evening, <span className='purple'> {username}</span></h1>
+            <button className="logout-button-mainpage" onClick={logOutUser}>
+              Log out
+            </button>
+          </div>
           <div className='card-1'>
             <img src={!userPfp ? userImg : userPfp}/>
             <div className='dashboard-data-user-crednetials'>

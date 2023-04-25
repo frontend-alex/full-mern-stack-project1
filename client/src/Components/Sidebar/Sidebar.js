@@ -6,15 +6,14 @@ import useFetch from "../../Hooks/useFetch";
 import { Data } from "../../Constants/Data";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { FiSettings } from 'react-icons/fi'
+import { FiSettings } from 'react-icons/fi';
+
+import userImg from '../../assests/images/user.png'
 
 const Sidebar = ({ user }) => {
 
   const img =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png";
-
-  const userImg =
-    "https://o.remove.bg/downloads/73b0a066-b871-4962-aff3-6d0086bb1ef1/436-4363443_view-user-icon-png-font-awesome-user-circle-removebg-preview.png";
 
     const [ data, error ] = useFetch(`http://localhost:5000/profile/${user._id}`, {})
 
@@ -39,7 +38,7 @@ const Sidebar = ({ user }) => {
           return (
             <li key={id} className="li">
               <i className={smallSide ? "icon icon-small" : "icon"}>{icons}</i>
-              <Link className={smallSide ? "a none" : "a"} to={`${path}/${user.username}`}>
+              <Link className={smallSide ? "a none" : "a"} to={`${path}/${user._id}`}>
                 {name}
               </Link>
             </li>
@@ -48,14 +47,15 @@ const Sidebar = ({ user }) => {
       </div>
       <div className="sidebar-account-data">
         <div className={smallSide ? "account-image left-10" : "account-image"}>
-          <img src={!userPfp ? userImg : userPfp} />
+          { !userPfp ? <img src={userImg} /> : <img className="mad-pic" src={userPfp} /> }
+
           <div className="add-image">
             <AiOutlinePlus className="icon" />
           </div>
         </div>
         <div className={smallSide ? "account-data none" : "account-data"}>
-          <h1>{username}</h1>
-          {/* <p>{user.email}</p> */}
+          <h3>{username}</h3>
+          <p>{user.email}</p>
         </div>
       </div>
 

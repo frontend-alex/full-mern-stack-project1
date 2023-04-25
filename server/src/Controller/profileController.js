@@ -2,14 +2,11 @@ const User = require("../Schemas/User");
 const profileService = require("../Services/profileService");
 
 exports.postEditProfile = async (req, res) => {
-  const { userPfp, username, bio, userId } = req.body;
-
-  const user = await profileService.getUser(userId);
+  const { userPfp, bio, userId } = req.body;
 
   await profileService
     .updateProfile(userId, {
       userPfp,
-      username,
       bio,
     })
     .then(() =>

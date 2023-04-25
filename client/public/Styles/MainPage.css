@@ -71,7 +71,7 @@
     display: flex;
     position: absolute;
     bottom: 5%;
-    gap: 15px;
+    gap: 10px;
     padding: 30px 5px;
 }
 
@@ -82,8 +82,18 @@
 
 
 .sidebar-container .sidebar-account-data img{
+    height: auto;
+    width: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    backface-visibility: hidden;
+}
+
+.sidebar-container .sidebar-account-data .mad-pic{
     height: 70px;
     width: 70px;
+    object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
     display: block;
@@ -93,8 +103,8 @@
 .sidebar-container .sidebar-account-data .account-image .add-image{
     opacity: 0;
     position: absolute;
-    top: 20%;
-    left: 29%;
+    top: 25%;
+    left: 35%;
     font-size: 30px;
     transition: .5s ease;
     cursor: pointer;
@@ -110,13 +120,19 @@
   }
   
 
-  .sidebar-container .sidebar-account-data .account-data h1::after{
+  .sidebar-container .sidebar-account-data .account-data h3::after{
     width: 80%;
     background: var(--mainColor);
     display: block;
     margin-right: auto;
     content: '';height: 1px;
   }
+
+  .sidebar-container .sidebar-account-data .account-data p{
+    color: gray;
+    font-size: 14px;
+  }
+
 
 
 
@@ -217,6 +233,22 @@
 .dashboard-data{
     width: 60%;
     padding: 20px;
+}
+
+.dashboard-first-thing {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-first-thing button{
+    background-color: white;
+    color: var(--mainColor);
+    border: 1px solid var(--mainColor);
+
+    width: 120px;
+    height: 50px;
+    border-radius: .5em;
+    cursor: pointer;
 }
 
 .dashboard-data .card-1{

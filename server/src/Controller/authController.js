@@ -21,6 +21,7 @@ router.post("/register", async (req, res) => {
 
   const exisitngUserEmail = await authService.getUser(email);
 
+
   if (exisitngUserEmail) {
     return res
       .status(404)
