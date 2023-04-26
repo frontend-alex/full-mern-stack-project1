@@ -30,7 +30,7 @@ const Navbar = () => {
             <img src={img} />
           </div>
           <div className="navbar-links">
-            {Data.navbarLinks.map((link, i, row) => {
+            {Data.navbarLinks.map(link => {
               const { id, name, path, icon, active } = link;
 
               return (

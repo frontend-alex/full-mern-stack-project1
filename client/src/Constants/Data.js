@@ -6,7 +6,7 @@ import { SiSimpleanalytics } from 'react-icons/si';
 
 
 
-export const Data = {
+export const Data =  {
     navbarLinks : [
         {
             id: 1,
@@ -83,7 +83,23 @@ export const Data = {
         {
             id: 1,
             name   : 'Home',
+            path   : '/catalog',
+            icons  : <AiOutlineHome/>,
+            active : false
+        },
+        {
+            id: 2,
+            name   : 'Edit',
             path   : '/edit',
+            icons  : <AiOutlineEdit/>,
+            active : false
+        },        
+    ],
+    sidebarLinksAdmin : [
+        {
+            id: 1,
+            name   : 'Home',
+            path   : '/catalog',
             icons  : <AiOutlineHome/>,
             active : false
         },
@@ -97,21 +113,21 @@ export const Data = {
         {
             id: 3,
             name   : 'Dashboard',
-            path   : '/edit',
+            path   : '/dashboard',
             icons  : <BsClipboardPulse/>,
             active : false
         },
         {
             id: 4,
             name   : 'Statistics',
-            path   : '/edit',
+            path   : '/statistics',
             icons  : <RxDashboard/>,
             active : false
         },
         {
             id: 5,
             name   : 'Analysis',
-            path   : '/edit',
+            path   : '/analysis',
             icons  : <SiSimpleanalytics/>,
             active : false
         },

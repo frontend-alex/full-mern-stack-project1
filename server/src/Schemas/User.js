@@ -15,6 +15,10 @@ const UserSchema = new Schema({
         required: true,
         minLength : [6, "Password is too short"]
     },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
     userPfp : {
         type: String,
     },

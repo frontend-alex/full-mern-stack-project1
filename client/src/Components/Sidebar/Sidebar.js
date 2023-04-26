@@ -6,19 +6,20 @@ import useFetch from "../../Hooks/useFetch";
 import { Data } from "../../Constants/Data";
 
 import { AiOutlinePlus } from "react-icons/ai";
-import { FiSettings } from 'react-icons/fi';
+import { FiSettings } from "react-icons/fi";
 
-import userImg from '../../assests/images/user.png'
+import userImg from "../../assests/images/user.png";
 
 const Sidebar = ({ user }) => {
-
   const img =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png";
 
-    const [ data, error ] = useFetch(`http://localhost:5000/profile/${user._id}`, {})
+  const [data, error] = useFetch(
+    `http://localhost:5000/profile/${user._id}`,
+    {},
+  );
 
   const [smallSide, setSmallSide] = useState(false);
-
 
   return (
     <div
@@ -30,22 +31,49 @@ const Sidebar = ({ user }) => {
         <img src={img} />
       </div>
       <div className="sidebar-links">
-        {Data.sidebarLinks.map((link) => {
-          const { id, name, path, icons } = link;
+        {!data.isAdmin
+          ? Data.sidebarLinks.map((link) => {
+              const { id, name, path, icons } = link;
 
-          return (
-            <li key={id} className="li">
-              <i className={smallSide ? "icon icon-small" : "icon"}>{icons}</i>
-              <Link className={smallSide ? "a none" : "a"} to={`${path}/${data?._id}`}>
-                {name}
-              </Link>
-            </li>
-          );
-        })}
+              return (
+                <li key={id} className="li">
+                  <i className={smallSide ? "icon icon-small" : "icon"}>
+                    {icons}
+                  </i>
+                  <Link
+                    className={smallSide ? "a none" : "a"}
+                    to={`${path}/${data?._id}`}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })
+          : Data.sidebarLinksAdmin.map((link) => {
+              const { id, name, path, icons } = link;
+
+              return (
+                <li key={id} className="li">
+                  <i className={smallSide ? "icon icon-small" : "icon"}>
+                    {icons}
+                  </i>
+                  <Link
+                    className={smallSide ? "a none" : "a"}
+                    to={!link.id == 2 ? `${path}` : `${path}/${data?._id}`}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
       </div>
       <div className="sidebar-account-data">
         <div className={smallSide ? "account-image left-10" : "account-image"}>
-          { !data?.userPfp ? <img src={userImg} /> : <img className="mad-pic" src={data?.userPfp} /> }
+          {!data?.userPfp ? (
+            <img src={userImg} />
+          ) : (
+            <img className="mad-pic" src={data?.userPfp} />
+          )}
 
           <div className="add-image">
             <AiOutlinePlus className="icon" />
@@ -57,8 +85,15 @@ const Sidebar = ({ user }) => {
         </div>
       </div>
 
-      <div className={smallSide ? "sidebar-settings padding-10" : "sidebar-settings"}>
-        <FiSettings className="icon" onClick={( ) => setSmallSide(prev => !prev)}/>
+      <div
+        className={
+          smallSide ? "sidebar-settings padding-10" : "sidebar-settings"
+        }
+      >
+        <FiSettings
+          className="icon"
+          onClick={() => setSmallSide((prev) => !prev)}
+        />
         <p className={smallSide ? "h1-none" : ""}>Change sidebar width</p>
       </div>
     </div>

@@ -16,7 +16,7 @@ const MainPage = ({ user }) => {
         <div className='sidebar'>
             <Sidebar user={user}/>
         </div>  
-        <div className='dashboard-data'>
+        {/* <div className='dashboard-data'>
           <div className='dashboard-first-thing'>
             <h1>Good Evening, <span className='purple'> {data?.username}</span></h1>
             <button className="logout-button-mainpage" onClick={logOutUser}>
@@ -32,7 +32,7 @@ const MainPage = ({ user }) => {
               <span className='bio'>{data?.bio ? data?.bio : 'User dont have a bio yet!'}</span>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className='dashboard-accessories'>
 
         </div>
