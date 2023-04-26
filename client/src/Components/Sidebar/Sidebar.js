@@ -17,8 +17,6 @@ const Sidebar = ({ user }) => {
 
     const [ data, error ] = useFetch(`http://localhost:5000/profile/${user._id}`, {})
 
-    const { username, bio, userPfp } = data;
-
   const [smallSide, setSmallSide] = useState(false);
 
 
@@ -38,7 +36,7 @@ const Sidebar = ({ user }) => {
           return (
             <li key={id} className="li">
               <i className={smallSide ? "icon icon-small" : "icon"}>{icons}</i>
-              <Link className={smallSide ? "a none" : "a"} to={`${path}/${user._id}`}>
+              <Link className={smallSide ? "a none" : "a"} to={`${path}/${data?._id}`}>
                 {name}
               </Link>
             </li>
@@ -47,15 +45,15 @@ const Sidebar = ({ user }) => {
       </div>
       <div className="sidebar-account-data">
         <div className={smallSide ? "account-image left-10" : "account-image"}>
-          { !userPfp ? <img src={userImg} /> : <img className="mad-pic" src={userPfp} /> }
+          { !data?.userPfp ? <img src={userImg} /> : <img className="mad-pic" src={data?.userPfp} /> }
 
           <div className="add-image">
             <AiOutlinePlus className="icon" />
           </div>
         </div>
         <div className={smallSide ? "account-data none" : "account-data"}>
-          <h3>{username}</h3>
-          <p>{user.email}</p>
+          <h3>{data?.username}</h3>
+          <p>{data?.email}</p>
         </div>
       </div>
 

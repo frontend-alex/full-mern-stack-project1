@@ -11,8 +11,6 @@ const MainPage = ({ user }) => {
   
   const [ data, error ] = useFetch(`http://localhost:5000/profile/${user._id}`, {})
 
-  const { username, bio, userPfp } = data;
-    
   return (
     <div className='main-page-container'>
         <div className='sidebar'>
@@ -20,18 +18,18 @@ const MainPage = ({ user }) => {
         </div>  
         <div className='dashboard-data'>
           <div className='dashboard-first-thing'>
-            <h1>Good Evening, <span className='purple'> {username}</span></h1>
+            <h1>Good Evening, <span className='purple'> {data?.username}</span></h1>
             <button className="logout-button-mainpage" onClick={logOutUser}>
               Log out
             </button>
           </div>
           <div className='card-1'>
-            <img src={!userPfp ? userImg : userPfp}/>
+            <img src={!data?.userPfp ? userImg : data?.userPfp}/>
             <div className='dashboard-data-user-crednetials'>
-              <h3>{username}</h3>
-              <p>{user.email}</p>
+              <h3>{data?.username}</h3>
+              <p>{data?.email}</p>
               <hr />
-              <span className='bio'>{bio ? bio : 'User dont have a bio yet!'}</span>
+              <span className='bio'>{data?.bio ? data?.bio : 'User dont have a bio yet!'}</span>
             </div>
           </div>
         </div>
