@@ -60,9 +60,9 @@ const UpdateProfile = ({ user }) => {
           </Link>
         </div>
         <div className="home-btn">
-          <Link className="">
+          <Link to='/catalog'>
             <IoReturnDownBackOutline className="icon rotate" />
-            Register
+            Catalog
           </Link>
         </div>
       </div>
