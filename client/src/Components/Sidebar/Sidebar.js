@@ -5,7 +5,8 @@ import useFetch from "../../Hooks/useFetch";
 
 import { Data } from "../../Constants/Data";
 
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
+
 import { FiSettings } from "react-icons/fi";
 
 import userImg from "../../assests/images/user.png";
@@ -31,8 +32,9 @@ const Sidebar = ({ user }) => {
         <img src={img} />
       </div>
       <div className="sidebar-links">
-        {!data.isAdmin
-          ? Data.sidebarLinks.map((link) => {
+        {data.isAdmin ? (
+          <div>
+            {Data.sidebarLinks.map((link) => {
               const { id, name, path, icons } = link;
 
               return (
@@ -42,30 +44,57 @@ const Sidebar = ({ user }) => {
                   </i>
                   <Link
                     className={smallSide ? "a none" : "a"}
-                    to={`${path}/${data?._id}`}
-                  >
-                    {name}
-                  </Link>
-                </li>
-              );
-            })
-          : Data.sidebarLinksAdmin.map((link) => {
-              const { id, name, path, icons } = link;
-
-              return (
-                <li key={id} className="li">
-                  <i className={smallSide ? "icon icon-small" : "icon"}>
-                    {icons}
-                  </i>
-                  <Link
-                    className={smallSide ? "a none" : "a"}
-                    to={!link.id == 2 ? `${path}` : `${path}/${data?._id}`}
+                    to={path}
                   >
                     {name}
                   </Link>
                 </li>
               );
             })}
+            <li className="li">
+              <i className={smallSide ? "icon icon-small" : "icon"}>
+                <AiOutlineEdit />
+              </i>
+              <Link
+                className={smallSide ? "a none" : "a"}
+                to={`/edit/${data?._id}`}
+              >
+                Edit Profile
+              </Link>
+            </li>
+          </div>
+        ) : (
+          <div>
+            {Data.sidebarLinksAdmin.map((link) => {
+              const { id, name, path, icons } = link;
+
+              return (
+                <li key={id} className="li">
+                  <i className={smallSide ? "icon icon-small" : "icon"}>
+                    {icons}
+                  </i>
+                  <Link
+                    className={smallSide ? "a none" : "a"}
+                    to={path}
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="li">
+              <i className={smallSide ? "icon icon-small" : "icon"}>
+                <AiOutlineEdit />
+              </i>
+              <Link
+                className={smallSide ? "a none" : "a"}
+                to={`/edit/${data?._id}`}
+              >
+                Edit Profile
+              </Link>
+            </li>
+          </div>
+        )}
       </div>
       <div className="sidebar-account-data">
         <div className={smallSide ? "account-image left-10" : "account-image"}>

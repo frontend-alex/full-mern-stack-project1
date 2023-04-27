@@ -2,6 +2,7 @@ import { AiOutlineHome, AiOutlineEdit} from 'react-icons/ai';
 import { RxDashboard } from 'react-icons/rx';
 import { BsClipboardPulse } from 'react-icons/bs';
 import { SiSimpleanalytics } from 'react-icons/si';
+import { IoCreateOutline } from 'react-icons/io5';
 
 
 
@@ -82,16 +83,16 @@ export const Data =  {
     sidebarLinks : [
         {
             id: 1,
-            name   : 'Home',
+            name   : 'Catalog',
             path   : '/catalog',
             icons  : <AiOutlineHome/>,
             active : false
         },
         {
             id: 2,
-            name   : 'Edit',
-            path   : '/edit',
-            icons  : <AiOutlineEdit/>,
+            name   : 'Post an article',
+            path   : '/post',
+            icons  : <IoCreateOutline/>,
             active : false
         },        
     ],
@@ -101,13 +102,6 @@ export const Data =  {
             name   : 'Home',
             path   : '/catalog',
             icons  : <AiOutlineHome/>,
-            active : false
-        },
-        {
-            id: 2,
-            name   : 'Edit Profile',
-            path   : '/edit',
-            icons  : <AiOutlineEdit/>,
             active : false
         },
         {
