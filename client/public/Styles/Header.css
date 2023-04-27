@@ -150,8 +150,8 @@
 
 
 .header-cards-container .header-card img{
-    height: 150px;
-    width: 150px;
+    height: auto;
+    width: 200px;
     object-fit: cover;
     margin: 0;
 }

@@ -18,6 +18,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    background-color: transparent;
 }
 
 .navbar-container .navbar-pc .box-1{
@@ -29,6 +31,7 @@
 .navbar-pc .navbar-logo img{
     width: 50px;
     height: auto;
+    cursor: pointer;
 }
 
 .navbar-pc .navbar-links {

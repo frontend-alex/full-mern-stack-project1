@@ -5,7 +5,7 @@ import useFetch from '../Hooks/useFetch';
 import userImg from '../assests/images/user.png'
 import useGetData from '../Hooks/useGetData';
 
-const MainPage = ({ user }) => {
+const Dashboard = ({ user }) => {
 
   const { logOutUser } = useGetData()
   
@@ -40,4 +40,4 @@ const MainPage = ({ user }) => {
   )
 }
 
-export default MainPage
+export default Dashboard 

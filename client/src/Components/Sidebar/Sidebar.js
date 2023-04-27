@@ -29,10 +29,10 @@ const Sidebar = ({ user }) => {
       }
     >
       <div className="sidebar-logo">
-        <img src={img} />
+        <img src={img} onClick={() => window.location.href = '/'}/>
       </div>
       <div className="sidebar-links">
-        {data.isAdmin ? (
+        {!data.isAdmin ? (
           <div>
             {Data.sidebarLinks.map((link) => {
               const { id, name, path, icons } = link;

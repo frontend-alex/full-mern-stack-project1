@@ -4,6 +4,7 @@
 @import url('./MainPage.css');
 @import url('./Error.css');
 @import url('./EditProfile.css');
+@import url('./Sidebar.css');
 
 *{
     padding: 0;

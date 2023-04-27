@@ -4,15 +4,41 @@ import { BsClipboardPulse } from 'react-icons/bs';
 import { SiSimpleanalytics } from 'react-icons/si';
 import { IoCreateOutline } from 'react-icons/io5';
 
-
+import airfoce from '../assests/images/airfoce.png'
+import yeezy500 from '../assests/images/yeezy500.png'
+import yeezy700 from '../assests/images/yeezy700.png'
+import newbalance from '../assests/images/new-balance.png'
 
 
 export const Data =  {
     navbarLinks : [
         {
             id: 1,
-            name   : 'Home',
-            path   : '/',
+            name   : 'Catalog',
+            path   : '/catalog',
+            icons  : '',
+            active : false
+        },
+        {
+            id: 2,
+            name   : 'About',
+            path   : '/about',
+            icons  : '',
+            active : false
+        },
+        {
+            id: 3,
+            name   : 'Contact',
+            path   : '/contact',
+            icons  : '',
+            active : false
+        },
+    ],
+    navbarLinksLogged : [
+        {
+            id: 1,
+            name   : 'Catalog',
+            path   : '/catalog',
             icons  : '',
             active : false
         },
@@ -47,35 +73,35 @@ export const Data =  {
     ],
 
     headerData : {
-        mainHeading: 'Secrets To PROGRAMMING – Even In This Down Economy',
+        mainHeading: 'Biggest Hype Shoe or Clothes exchange/resell website out here!',
         paraghraph: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard  dummy text ever since the 1500s,'
     },
 
     headerCards : [
         {
             id: 1,
-            h1  : 'MongoDb',
-            p   : 'DataBase',
-            picture  : 'https://www.tutorialsteacher.com/Content/images/home/mongodb.svg',
+            h1  : 'Yeezy Boost 500',
+            p   : 'Adidas',
+            picture  : yeezy500,
         },
         {
             id: 2,
-            h1  : 'Express',
-            p   : 'Backend Framework',
-            picture  : 'https://creazilla-store.fra1.digitaloceanspaces.com/icons/3498663/status-iucn-ex-icon-blank-icon-md.png',
+            h1  : 'Yeezy Boost 700 v3',
+            p   : 'Adidas',
+            picture  : yeezy700 ,
         },
         {
             id: 3,
-            h1  : 'ReactJs',
-            p   : 'Frontend Framework',
-            picture  : 'https://w7.pngwing.com/pngs/79/518/png-transparent-js-react-js-logo-react-react-native-logos-icon-thumbnail.png',
+            h1  : 'Air Force 1',
+            p   : 'Nike',
+            picture  : airfoce,
         },
        
         {
             id: 4,
-            h1  : 'NodeJs',
-            p   : 'Enviroment',
-            picture  : 'https://pluralsight2.imgix.net/paths/images/nodejs-45adbe594d.png',
+            h1  : 'NB 2002rd salt',
+            p   : 'New Balance',
+            picture  : newbalance,
         },
         
     ],
