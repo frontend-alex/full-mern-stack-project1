@@ -1,0 +1,57 @@
+:root{
+    --mainColor: #6C63FF;
+    --circleColor: #6b63ffa6;
+}
+
+
+.catalog-container{
+    padding: 0 300px;
+    position: relative;
+    margin-top: 200px;
+    padding: 0 300px;
+    width: 100%;
+}
+
+.catalog-container .catalog-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.catalog-container .catalog-header h1{
+    color: rgb(66, 66, 66);
+    font-size: 50px;
+}
+
+.catalog-container .catalog-header .box-2{
+    width: 70%;
+}
+
+.box-2 .header-circle { 
+    text-align: center;
+    background-color: var(--circleColor);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    float: right;
+}
+
+.box-2 .header-circle .icon{
+    font-size: 100px;
+
+    border: 1px solid white;
+    background-color: var(--circleColor);
+    color: white;
+    border-radius: 50%;
+
+    padding: 30px;
+    margin-top: 10px;
+
+    cursor: pointer;
+
+}
+
+.box-2 .header-circle p {
+    position: absolute; top:60% ;
+    color: white;
+}

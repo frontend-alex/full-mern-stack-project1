@@ -5,6 +5,7 @@
 @import url('./Error.css');
 @import url('./EditProfile.css');
 @import url('./Sidebar.css');
+@import url('./Catalog.css');
 
 *{
     padding: 0;
