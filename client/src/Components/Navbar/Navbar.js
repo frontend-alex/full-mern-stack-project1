@@ -29,12 +29,14 @@ const Navbar = ({ user }) => {
 
   function OnScrol() {
     if (
-      document.body.scrollTop > 120 ||
-      document.documentElement.scrollTop > 120
+      document.body.scrollTop > 60 ||
+      document.documentElement.scrollTop > 60
     ) {
       ref.current.style.background = "white";
+      ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
     } else {
       ref.current.style.background = "transparent";
+      ref.current.style.boxShadow = 'none'
     }
   }
 

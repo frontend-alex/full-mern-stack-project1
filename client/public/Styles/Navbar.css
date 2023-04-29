@@ -20,6 +20,10 @@
     align-items: center;
 
     background-color: transparent;
+    box-shadow: none;
+
+    transition: .4s;
+
 }
 
 .navbar-container .navbar-pc .box-1{

@@ -116,7 +116,7 @@ export const Data =  {
         },
         {
             id: 2,
-            name   : 'Post an article',
+            name   : 'Post an Ad',
             path   : '/post',
             icons  : <IoCreateOutline/>,
             active : false
@@ -146,9 +146,9 @@ export const Data =  {
         },
         {
             id: 5,
-            name   : 'Analysis',
-            path   : '/analysis',
-            icons  : <SiSimpleanalytics/>,
+            name   : 'Post an Ad',
+            path   : '/post',
+            icons  : <IoCreateOutline/>,
             active : false
         },
     ]

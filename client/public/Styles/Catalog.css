@@ -1,57 +1,211 @@
-:root{
-    --mainColor: #6C63FF;
-    --circleColor: #6b63ffa6;
+:root {
+  --mainColor: #6c63ff;
+  --circleColor: #6b63ffa6;
 }
 
-
-.catalog-container{
-    padding: 0 300px;
-    position: relative;
-    margin-top: 200px;
-    padding: 0 300px;
-    width: 100%;
+.catalog-container {
+  padding: 0 300px;
+  position: relative;
+  margin-top: 200px;
+  padding: 0 300px;
+  width: 100%;
 }
 
-.catalog-container .catalog-header{
-    display: flex;
-    justify-content: space-between;
+.catalog-container .catalog-header {
+  display: flex;
+  justify-content: space-between;
 }
 
-.catalog-container .catalog-header h1{
-    color: rgb(66, 66, 66);
-    font-size: 50px;
+.catalog-container .catalog-header h1 {
+  color: rgb(66, 66, 66);
+  font-size: 50px;
 }
 
-.catalog-container .catalog-header .box-2{
-    width: 70%;
+.catalog-container .catalog-header .box-2 {
+  width: 70%;
 }
 
-.box-2 .header-circle { 
-    text-align: center;
-    background-color: var(--circleColor);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    position: relative;
-    float: right;
+.box-2 .header-circle {
+  text-align: center;
+  background-color: var(--circleColor);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  float: right;
 }
 
-.box-2 .header-circle .icon{
-    font-size: 100px;
+.box-2 .header-circle .icon {
+  font-size: 100px;
 
-    border: 1px solid white;
-    background-color: var(--circleColor);
-    color: white;
-    border-radius: 50%;
+  border: 1px solid white;
+  background-color: var(--circleColor);
+  color: white;
+  border-radius: 50%;
 
-    padding: 30px;
-    margin-top: 10px;
+  padding: 30px;
+  margin-top: 10px;
 
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
 .box-2 .header-circle p {
-    position: absolute; top:60% ;
-    color: white;
+  position: absolute;
+  top: 60%;
+  color: white;
+}
+
+.catalog-container .catalog-sorting-conainter {
+  display: flex;
+  height: 30vh;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog-container .catalog-sorting-conainter > div {
+  position: relative;
+  width: 100%;
+}
+
+.catalog-container .catalog-sorting-conainter .box-2 {
+  margin: 0 20px;
+}
+
+.catalog-container .catalog-sorting-conainter input {
+  width: 100%;
+  height: 80px;
+  padding: 15px;
+
+  outline: none;
+
+  text-align: right;
+  font-size: 16px;
+  color: gray;
+}
+
+.catalog-container .catalog-sorting-conainter input:focus {
+  border: 1px solid black;
+}
+
+.catalog-container .catalog-sorting-conainter input::placeholder {
+  color: var(--mainColor);
+}
+
+.catalog-container .catalog-sorting-conainter label {
+  position: absolute;
+  left: 4%;
+  top: 30%;
+
+  color: gray;
+}
+
+
+
+
+
+
+.catalog-post-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.catalog-post-container .post{
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+.catalog-post-container .post img{
+    width: 100%;
+    vertical-align: middle;
+    height: 300px;
+    object-fit: cover;
+    border-top-right-radius: .5em;
+    border-top-left-radius: .5em;
+}
+
+
+.catalog-post-container .post{
+    display: flex;
+    padding: 1em;
+    border-radius: .5em;
+  }
+
+  @media screen and (min-width: 40rem) {
+    .catalog-post-container .posts{
+        width: 50%;
+    }
+  }
+  
+  @media screen and (min-width: 56rem) {
+    .catalog-post-container .post{
+        width: 33.3333%;
+    }
+}
+
+
+
+.catalog-container .post .post-items{
+    background-color: white;
+    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    border:1px solid gray;
+}
+
+.catalog-container .post .post-items .post-text{
+    padding: 1em;
+}
+
+
+@media screen and (max-width: 1350px) {
+  .catalog-container {
+    padding: 0 150px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .catalog-container {
+    padding: 0 100px;
+  }
+
+  .catalog-container .catalog-header h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .catalog-container .catalog-sorting-conainter {
+    flex-wrap: wrap;
+  }
+  .catalog-container .catalog-sorting-conainter{
+    margin-top: 50px;
+  }
+  .catalog-container .catalog-sorting-conainter .box-2 {
+    margin: 20px 0;
+  }
+}
+
+
+@media screen and (max-width: 768px){
+    .catalog-container .catalog-header{
+        flex-wrap:wrap ;
+    }
+    .catalog-container .catalog-header h1{
+        text-align: center;
+        margin: 20px 0;
+    }
+    .catalog-container .catalog-header .box-2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .catalog-container {
+        padding: 20px;
+      }
 }

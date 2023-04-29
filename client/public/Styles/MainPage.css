@@ -7,11 +7,12 @@
 .main-page-container{
     height: 100vh;
     width: 100%;
-    z-index: 3;
     background-color: white;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    z-index: 4;
+
 }
 
 
@@ -19,8 +20,11 @@
 /* main-page data ******************************/
 
 .dashboard-data{
-    width: 60%;
+    width: 50%;
+    height: 100%;
+
     padding: 20px;
+
 }
 
 .dashboard-first-thing {
@@ -31,25 +35,30 @@
 .dashboard-first-thing button{
     background-color: white;
     color: var(--mainColor);
+
     border: 1px solid var(--mainColor);
+    border-radius: .5em;
 
     width: 120px;
     height: 50px;
-    border-radius: .5em;
+
     cursor: pointer;
 }
 
 .dashboard-data .card-1{
     width: 100%;
     height: 300px;
+
     display: flex;
     justify-content: flex-start;
     gap: 20px;
+
     align-items: center;
 }
 .dashboard-data .card-1 img{
     height: 130px;
     width: 130px;
+    
     object-fit: cover;
     border-radius: 50%;
 }
@@ -66,14 +75,29 @@
 
 .dashboard-accessories{
     width: 20%;
+    background-color: blue;
 }
 
 /* main-page accesories *************************/
 
+@media screen and (min-width:1200px){
+    .main-page-container{
+        padding: 10px;
 
+    }
+}
 
 @media screen and (max-width:1200px) {
     .main-page-container{
         display: block;
+    }
+    .sidebar {
+        display: none;
+    }
+    .dashboard-accessories{
+        display: none;
+    }
+    .dashboard-data{
+        width: 100%;
     }
 }

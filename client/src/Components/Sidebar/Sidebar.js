@@ -20,7 +20,7 @@ const Sidebar = ({ user }) => {
     {},
   );
 
-  const [smallSide, setSmallSide] = useState(false);
+  const [smallSide, setSmallSide] = useState(true);
 
   return (
     <div
@@ -29,7 +29,7 @@ const Sidebar = ({ user }) => {
       }
     >
       <div className="sidebar-logo">
-        <img src={img} onClick={() => window.location.href = '/'}/>
+        <img src={img} onClick={() => (window.location.href = "/")} />
       </div>
       <div className="sidebar-links">
         {!data.isAdmin ? (
@@ -42,10 +42,7 @@ const Sidebar = ({ user }) => {
                   <i className={smallSide ? "icon icon-small" : "icon"}>
                     {icons}
                   </i>
-                  <Link
-                    className={smallSide ? "a none" : "a"}
-                    to={path}
-                  >
+                  <Link className={smallSide ? "a none" : "a"} to={path}>
                     {name}
                   </Link>
                 </li>
@@ -73,10 +70,7 @@ const Sidebar = ({ user }) => {
                   <i className={smallSide ? "icon icon-small" : "icon"}>
                     {icons}
                   </i>
-                  <Link
-                    className={smallSide ? "a none" : "a"}
-                    to={path}
-                  >
+                  <Link className={smallSide ? "a none" : "a"} to={path}>
                     {name}
                   </Link>
                 </li>
@@ -96,34 +90,39 @@ const Sidebar = ({ user }) => {
           </div>
         )}
       </div>
-      <div className="sidebar-account-data">
-        <div className={smallSide ? "account-image left-10" : "account-image"}>
-          {!data?.userPfp ? (
-            <img src={userImg} />
-          ) : (
-            <img className="mad-pic" src={data?.userPfp} />
-          )}
 
-          <div className="add-image">
-            <AiOutlinePlus className="icon" />
+      <div className="sidebar-data-relative">
+        <div className="sidebar-account-data">
+          <div
+            className={smallSide ? "account-image left-10" : "account-image"}
+          >
+            {!data?.userPfp ? (
+              <img src={userImg} />
+            ) : (
+              <img className="mad-pic" src={data?.userPfp} />
+            )}
+
+            <div className="add-image">
+              <AiOutlinePlus className="icon" />
+            </div>
+          </div>
+          <div className={smallSide ? "account-data none" : "account-data"}>
+            <h3>{data?.username}</h3>
+            <p>{data?.email}</p>
           </div>
         </div>
-        <div className={smallSide ? "account-data none" : "account-data"}>
-          <h3>{data?.username}</h3>
-          <p>{data?.email}</p>
-        </div>
-      </div>
 
-      <div
-        className={
-          smallSide ? "sidebar-settings padding-10" : "sidebar-settings"
-        }
-      >
-        <FiSettings
-          className="icon"
-          onClick={() => setSmallSide((prev) => !prev)}
-        />
-        <p className={smallSide ? "h1-none" : ""}>Change sidebar width</p>
+        <div
+          className={
+            smallSide ? "sidebar-settings padding-10" : "sidebar-settings"
+          }
+        >
+          <FiSettings
+            className="icon"
+            onClick={() => setSmallSide((prev) => !prev)}
+          />
+          <p className={smallSide ? "h1-none" : ""}>Change sidebar width</p>
+        </div>
       </div>
     </div>
   );

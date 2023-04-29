@@ -18,7 +18,6 @@ exports.postEditProfile = async (req, res) => {
     .catch((err) => res.json({ status: 201, error: err }));
 };
 
-
 exports.getProfile = async (req, res) => {
   const { userId } = req.params
 
