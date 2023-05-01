@@ -55,7 +55,7 @@ const Header = () => {
           <span className="circle"></span>
 
           {results.length == 0 ? (
-            <h1>No found</h1>
+            <h1 className="error-msg">No found</h1>
           ) : (
             <>
               {results.map((card) => {

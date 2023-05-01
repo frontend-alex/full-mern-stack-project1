@@ -15,6 +15,7 @@ import UpdateProfile from './Routes/UpdateProfile';
 //hooks
 import useAuth from './Hooks/useAuth';
 import Catalog from './Routes/Catalog';
+import PostAd from './Routes/PostAd';
 
 
 
@@ -32,8 +33,9 @@ const App = () => {
         <Route path='/register' element={<MakeAccount user={user}/>}/>
         <Route path='/catalog' element={<Catalog user={user}/>}/>
 
-        { user ? <Route path='/dashboard/:userId' element={<Dashboard  user={user}/>}/> : <Route path='/register' element={<MakeAccount/>}/>}
-        { user ? <Route path='/edit/:userId' element={<UpdateProfile user={user} />}/> : <Route path='/register' element={<MakeAccount/>}/>}
+        { user ?   <Route path='/dashboard/:userId' element={<Dashboard  user={user}/>}/> : <Route path='/register' element={<MakeAccount/>}/>}
+        { user ?   <Route path='/edit/:userId' element={<UpdateProfile user={user} />}/>  : <Route path='/register' element={<MakeAccount/>}/>}
+        { user ?   <Route path='/post-ad' element={<PostAd/>}/>                          : <Route path='/post-add' element={<ErrorPage/>}/>}
         
         <Route path='*' element={<ErrorPage user={user} />}/>
       </Routes>

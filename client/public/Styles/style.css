@@ -6,6 +6,7 @@
 @import url('./EditProfile.css');
 @import url('./Sidebar.css');
 @import url('./Catalog.css');
+@import url('./PostAdd.css');
 
 *{
     padding: 0;

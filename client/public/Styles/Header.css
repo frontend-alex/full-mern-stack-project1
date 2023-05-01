@@ -125,6 +125,14 @@
 }
 
 
+.header-cards-container .error-msg{
+    color: red;
+    border-radius: .5em;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(255, 0, 0, 0.413);
+}
+
 
 .header-cards-container .header-card{
     width: 300px;

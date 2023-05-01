@@ -56,20 +56,6 @@ export const Data =  {
             icons  : '',
             active : false
         },
-        {
-            id: 4,
-            name   : 'Dashboard',
-            path   : '/dashboard',
-            icons  : '',
-            active : false
-        },
-        {
-            id: 5,
-            name   : 'Edit Profile',
-            path   : '/edit',
-            icons  : '',
-            active : false
-        },
     ],
 
     headerData : {
@@ -147,7 +133,7 @@ export const Data =  {
         {
             id: 5,
             name   : 'Post an Ad',
-            path   : '/post',
+            path   : '/post-ad',
             icons  : <IoCreateOutline/>,
             active : false
         },

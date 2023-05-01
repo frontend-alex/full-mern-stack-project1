@@ -48,17 +48,19 @@ const Navbar = ({ user }) => {
             <img src={img} onClick={() => (window.location.href = "/")} />
           </div>
           <div className="navbar-links">
-            {!user
-              ? Data.navbarLinks.map((link) => {
-                  const { id, name, path, icon, active } = link;
+            {!user ? (
+              Data.navbarLinks.map((link) => {
+                const { id, name, path, icon, active } = link;
 
-                  return (
-                    <li key={id}>
-                      <Link to={path}>{name}</Link>
-                    </li>
-                  );
-                })
-              : Data.navbarLinksLogged.map((link) => {
+                return (
+                  <li key={id}>
+                    <Link to={path}>{name}</Link>
+                  </li>
+                );
+              })
+            ) : (
+              <React.Fragment>
+                {Data.navbarLinksLogged.map((link) => {
                   const { id, name, path, icon, active } = link;
 
                   return (
@@ -67,18 +69,26 @@ const Navbar = ({ user }) => {
                     </li>
                   );
                 })}
+                <li>
+                  <Link to={`/dashboard/${user.username}`}>Dashboard</Link>
+                </li>
+                <li>
+                  <Link to={`/edit/${user._id}`}>Edit Profile</Link>
+                </li>
+              </React.Fragment>
+            )}
           </div>
         </div>
         <div className="navbar-accessories">
           {user ? (
-              <button
-                className="button-login"
-                onClick={() =>
-                  (window.location.href = `/dashboard/${user.username}`)
-                }
-              >
-                Profile
-              </button>
+            <button
+              className="button-login"
+              onClick={() =>
+                (window.location.href = `/dashboard/${user.username}`)
+              }
+            >
+              Profile
+            </button>
           ) : (
             <button
               className="button-login"
