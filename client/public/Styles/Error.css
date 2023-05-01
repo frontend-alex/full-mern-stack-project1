@@ -12,14 +12,18 @@
   align-items: center;
 }
 
+.error-page-container .error-container{
+  position: absolute;
+  left: 53%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .error-page-container img {
   width: 700px;
-  padding: 50px;
   height: auto;
 }
-.error-page-container .error-text{
-    padding: 50px;
-}
+
 .error-page-container .error-text p {
   color: gray;
   width: 70%;
@@ -39,3 +43,14 @@
     font-size: 30px;
 }
 
+@media screen and (max-width:1200px) {
+  .error-page-container{
+    display: block;
+    align-content: center;
+    
+  }
+  .error-page-container img{
+    width: 400px;
+    margin: auto;
+  }
+}

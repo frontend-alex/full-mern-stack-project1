@@ -38,14 +38,14 @@ const Sidebar = ({ user }) => {
               const { id, name, path, icons } = link;
 
               return (
-                <li key={id} className="li">
+                <Link key={id} className="li">
                   <i className={smallSide ? "icon icon-small" : "icon"}>
                     {icons}
                   </i>
-                  <Link className={smallSide ? "a none" : "a"} to={path}>
+                  <li className={smallSide ? "a none" : "a"} to={path}>
                     {name}
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               );
             })}
             <li className="li">
