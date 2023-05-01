@@ -23,22 +23,22 @@ const Navbar = ({ user }) => {
 
   const ref = useRef();
 
-  window.onscroll = function () {
-    OnScrol();
-  };
+  // window.onscroll = function () {
+  //   OnScrol();
+  // };
 
-  function OnScrol() {
-    if (
-      document.body.scrollTop > 60 ||
-      document.documentElement.scrollTop > 60
-    ) {
-      ref.current.style.background = "white";
-      ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
-    } else {
-      ref.current.style.background = "transparent";
-      ref.current.style.boxShadow = 'none'
-    }
-  }
+  // function OnScrol() {
+  //   if (
+  //     document.body.scrollTop > 60 ||
+  //     document.documentElement.scrollTop > 60
+  //   ) {
+  //     ref.current.style.background = "white";
+  //     ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
+  //   } else {
+  //     ref.current.style.background = "transparent";
+  //     ref.current.style.boxShadow = 'none'
+  //   }
+  // }
 
   return (
     <div className="navbar-container">

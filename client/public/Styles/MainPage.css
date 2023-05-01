@@ -80,18 +80,20 @@
 
 /* main-page accesories *************************/
 
-@media screen and (min-width:1200px){
+@media screen and (min-width:900px){
     .main-page-container{
         padding: 10px;
-
+    }
+    .sidebar-phone{
+        display: none;
     }
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:900px) {
     .main-page-container{
         display: block;
     }
-    .sidebar {
+    .sidebar-pc {
         display: none;
     }
     .dashboard-accessories{
