@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Data } from "../../Constants/Data";
+
 import ErrorToast from "../ToastMessages/ErrorToast";
+
+import { IoReturnDownBackOutline } from "react-icons/io5";
 
 const Header = () => {
   const [data, setData] = useState("");
@@ -46,6 +51,9 @@ const Header = () => {
         <button type="submit" className="header-btn">
           Search
         </button>
+        <div className="arrow-link-global">
+          <Link to='/catalog'><IoReturnDownBackOutline className="icon" />Catalog</Link>
+        </div>
       </form>
 
       <div className="header-remeasuring">

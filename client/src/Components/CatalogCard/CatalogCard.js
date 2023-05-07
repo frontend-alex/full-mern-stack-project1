@@ -1,17 +1,31 @@
 import React from "react";
 
-const CatalogCard = ({ card }) => {
+import { BsBagPlus }  from 'react-icons/bs';
+
+const CatalogCard = ({data, getItem}) => {
+  const shortH1 = data.title.slice(0, 20) + "...";
+  const shortDesc = data.description.slice(0, 100) + "...";
+
+  const sale = data.price + 100
+
   return (
     <div className="post">
       <div className="post-items">
-        <img src="https://images.pexels.com/photos/16511744/pexels-photo-16511744.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" />
+        <img src={data.image} />
         <div className="post-text">
-          <h1>Hello world</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad non
-            tempore dolor vitae velit corrupti, amet molestias alias incidunt, a
-            harum eum facere modi qui impedit, esse sapiente doloribus ratione.
-          </p>
+          <div>
+            <h2>{shortH1}</h2>
+            <p>{shortDesc}</p>
+          </div>
+
+          <p>Price:</p>
+          <div className="catalog-price">
+            <div className="price-sale">
+              <span>{data.price} $</span>
+              <span className="sale"> <strike>{sale} $</strike></span>
+            </div>
+            <button onClick={() => getItem(data)} className="catalog-add-to"><BsBagPlus className="icon"/></button>
+          </div>
         </div>
       </div>
     </div>

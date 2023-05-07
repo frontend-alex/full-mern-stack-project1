@@ -60,7 +60,6 @@
   height: 30vh;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .catalog-container .catalog-sorting-conainter > div {
@@ -117,10 +116,11 @@
     width: 100%;
     vertical-align: middle;
     height: 200px;
-    object-fit: cover;
-
+    margin-top: 30px;
+    object-fit: contain;
     border-top-left-radius: .5em;
     border-top-right-radius: .5em;
+
 }
 
 
@@ -151,12 +151,53 @@
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(191, 191, 191);
+    position: relative;
 }
 
 .catalog-container .post .post-items .post-text{
-    padding: 1em;
+  padding: 1em;
 }
 
+.catalog-container .post .post-items .post-text p{
+  color: gray;
+  margin-top: 30px;
+  font-size: 17px;
+} 
+
+.catalog-container .post .post-items .post-text .catalog-price{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.catalog-container .post .post-items .post-text .catalog-price span{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.catalog-container .post .post-items .post-text .catalog-price .price-sale .sale{
+  color: gray;
+  font-size: 17px;
+
+}
+
+.catalog-container .post .post-items .catalog-add-to{
+  padding: 10px;
+
+  height: 70px;
+  width: 70px;
+
+  border: none;
+  border-radius:50%;
+  background-color: var(--mainColor);
+  color: white;
+
+  cursor: pointer;
+}
+.catalog-container .post .post-items .catalog-add-to .icon{
+  font-size: 20px;
+}
 
 @media screen and (max-width: 1350px) {
   .catalog-container {
@@ -183,6 +224,9 @@
   }
   .catalog-container .catalog-sorting-conainter .box-2 {
     margin: 20px 0;
+  }
+  .catalog-post-container{
+    margin-top: 100px;
   }
 }
 

@@ -27,3 +27,17 @@
 .purple {
     color: var(--mainColor);
 }
+
+.arrow-link-global a{
+    color: gray;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.arrow-link-global a .icon{
+    color: var(--mainColor);
+    font-size: 30px;
+    transform: rotateY(180deg)
+}

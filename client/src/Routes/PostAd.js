@@ -12,7 +12,6 @@ const PostAd = () => {
     setData((state) => ({ ...state, [name]: value }));
   };
 
-  console.log(data);
 
   return (
     <div className="post-ad-container">
