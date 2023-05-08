@@ -137,6 +137,12 @@ export const Data =  {
             icons  : <IoCreateOutline/>,
             active : false
         },
-    ]
+    ],
+
+    shoppingCartText : {
+        cartH1: "Shopping cart.",
+        items: "items in the bag.",
+        promo: "Have a Promo code?"
+    }
 }
 

@@ -20,6 +20,7 @@ import CatalogProduct from './Routes/CatalogProduct';
 
 //hooks
 import useAuth from './Hooks/useAuth';
+import Footer from './Components/Footer/Footer';
 
 
 
@@ -29,7 +30,11 @@ const App = () => {
 
   const [ user ] = useAuth();
 
-  const [ coutner, setCounter ] = useState(0)
+  const [ cart, setCart ] = useState([]);
+  const [ coutner, setCounter ] = useState(cart.length )
+
+
+
 
   return (
     <div className='app-container'>
@@ -39,13 +44,20 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/register' element={<MakeAccount user={user}/>}/>
-        <Route path='/catalog' element={ <Catalog 
+        <Route path='/catalog' element={<Catalog 
                                                 user={user} 
                                                 coutner={coutner}  
                                                 setCounter={setCounter}
+
+                                                cart={cart} 
+                                                setCart={setCart}
                                         />}/>
                                         
-        <Route path='/cart' element={<Cart user={user}/>}/>
+        <Route path='/cart' element={<Cart 
+                                          user={user} 
+                                          cart={cart} 
+                                          setCart={setCart}
+                                      />}/>
         <Route path='/catalog/:productId' element={<CatalogProduct/>}/>
 
         { user ?   <Route path='/dashboard/:userId' element={<Dashboard  user={user}/>}/> : <Route path='/register' element={<MakeAccount/>}/>}
@@ -55,6 +67,8 @@ const App = () => {
         <Route path='*' element={<ErrorPage user={user} />}/>
       </Routes>
        
+
+       <Footer/>
     </div>
   )
 }

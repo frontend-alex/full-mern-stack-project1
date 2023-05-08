@@ -7,6 +7,9 @@
 @import url('./Sidebar.css');
 @import url('./Catalog.css');
 @import url('./PostAdd.css');
+@import url('./Cart.css');
+
+@import url('./fastCss.css');
 
 *{
     padding: 0;
@@ -20,38 +23,9 @@
     --mainColor: #6C63FF;
 }
 
-.gray {
-    color: gray;
+.purple{
+  color: var(--mainColor);
 }
-
-.purple {
-    color: var(--mainColor);
-}
-
-.d-flex{
-    display: flex;
-}
-
-
-.gap-5{
-    gap: 5px;
-}
-.gap-7{
-    gap: 7px;
-}
-.gap-8{
-    gap: 8px;
-}
-.gap-10{
-    gap: 10px;
-}
-.gap-15{
-    gap: 15px;
-}
-.gap-20{
-    gap: 20px;
-}
-
 .arrow-link-global a{
     color: gray;
     text-decoration: none;
@@ -65,3 +39,30 @@
     font-size: 30px;
     transform: rotateY(180deg)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* foooter styles*/

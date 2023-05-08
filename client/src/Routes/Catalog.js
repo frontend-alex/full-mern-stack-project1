@@ -4,19 +4,23 @@ import { BsPlay } from "react-icons/bs";
 
 import CatalogCard from "../Components/CatalogCard/CatalogCard";
 import ErrorToast from "../Components/ToastMessages/ErrorToast";
+import OkToast from '../Components/ToastMessages/OkayToast'
+
 import useFetch from "../Hooks/useFetch";
 
-const Catalog = ({ coutner, setCounter }) => {
+const Catalog = ({ coutner, setCounter, cart, setCart }) => {
   const [data, error] = useFetch("https://fakestoreapi.com/products");
 
   const [ errorToast, setErrorToast ] = useState(false);
+  const [ added, setAdded ] = useState(false)
 
-  const [cart, setCart] = useState([]);
 
-  const getItem = (item) => {    
+  const getItem = (item) => {  
+    setAdded(false)  
+
     let added = false
 
-    cart.forEach(product => {
+    cart?.forEach(product => {
       if(item.id == product.id){
         added = true
       }
@@ -27,18 +31,22 @@ const Catalog = ({ coutner, setCounter }) => {
 
       setTimeout(() => {
         setErrorToast(false)
-      }, 1000)
+      }, 3000)
 
       return ;
     }
-    
+    setAdded(true)
     setCart([...cart, item])
     setCounter(cart.length)
   };
 
   return (
     <div className="catalog-container">
+      {added &&  <OkToast text='Item added :D'/>}
       {errorToast && <ErrorToast text='Item already in your cart!'/>}
+
+
+
       <div className="catalog-header">
         <h1>
           Premuim Shoes from From Manifacturer
