@@ -1,30 +1,41 @@
 import React from "react";
 
-import { BsBagPlus }  from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
-const CatalogCard = ({data, getItem}) => {
+import { BsBagPlus } from "react-icons/bs";
+
+const CatalogCard = ({ data, getItem, counter, setCounter }) => {
   const shortH1 = data.title.slice(0, 20) + "...";
   const shortDesc = data.description.slice(0, 100) + "...";
 
-  const sale = data.price + 100
+  const sale = data.price + 100;
 
   return (
     <div className="post">
       <div className="post-items">
-        <img src={data.image} />
-        <div className="post-text">
+        <Link to={`/catalog/${data.id}`}>
+          <img src={data.image} />
+
           <div>
             <h2>{shortH1}</h2>
             <p>{shortDesc}</p>
           </div>
+        </Link>
 
+        
+        <div className="post-text">
           <p>Price:</p>
           <div className="catalog-price">
             <div className="price-sale">
               <span>{data.price} $</span>
-              <span className="sale"> <strike>{sale} $</strike></span>
+              <span className="sale">
+                {" "}
+                <strike>{sale} $</strike>
+              </span>
             </div>
-            <button onClick={() => getItem(data)} className="catalog-add-to"><BsBagPlus className="icon"/></button>
+            <button onClick={() => getItem(data)} className="catalog-add-to">
+              <BsBagPlus className="icon" />
+            </button>
           </div>
         </div>
       </div>

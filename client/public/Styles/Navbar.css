@@ -7,7 +7,7 @@
     width: 100%;
     height: 70px;
     top: 0;
-    z-index: -1;
+    z-index: 5;
 }
 
 
@@ -78,6 +78,8 @@
 
 .navbar-accessories{
     display: flex;
+    gap: 5em;
+    align-items: center;
 }
 
 .navbar-accessories button{
@@ -113,6 +115,28 @@
     color: var(--mainColor);
     border: 1px solid var(--mainColor);
 
+}
+
+
+.navbar-cart a{
+    color: gray;
+    text-decoration: none;
+}
+
+.navbar-cart a .icon{
+    color: gray;
+    font-size: 25px;
+}
+.navbar-cart a span{
+    background-color: var(--mainColor);
+    height: 30px;
+    width: 30px;
+
+    padding: 3px;
+
+    text-align: center;
+    color: white;
+    border-radius:50% ;
 }
 
 @media screen and (max-width: 900px) {

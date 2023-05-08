@@ -3,11 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Data } from "../../Constants/Data";
 
 import { BsPlus } from "react-icons/bs";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import useAuth from "../../Hooks/useAuth";
 import useFetch from "../../Hooks/useFetch";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, coutner }) => {
   const img =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png";
 
@@ -23,22 +24,24 @@ const Navbar = ({ user }) => {
 
   const ref = useRef();
 
-  // window.onscroll = function () {
-  //   OnScrol();
-  // };
+  window.onscroll = function () {
+    OnScrol();
+  };
 
-  // function OnScrol() {
-  //   if (
-  //     document.body.scrollTop > 60 ||
-  //     document.documentElement.scrollTop > 60
-  //   ) {
-  //     ref.current.style.background = "white";
-  //     ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
-  //   } else {
-  //     ref.current.style.background = "transparent";
-  //     ref.current.style.boxShadow = 'none'
-  //   }
-  // }
+  function OnScrol() {
+    if (
+      document.body.scrollTop > 60 ||
+      document.documentElement.scrollTop > 60
+    ) {
+      ref.current.style.background = "white";
+      ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
+      ref.current.style.zIndex= '4'
+    } else {
+      ref.current.style.background = "transparent";
+      ref.current.style.boxShadow = 'none'
+      ref.current.style.zIndex= '-1'
+    }
+  }
 
   return (
     <div className="navbar-container">
@@ -98,6 +101,14 @@ const Navbar = ({ user }) => {
               Create
             </button>
           )}
+          <div className="navbar-cart">
+            <Link to='/cart'>
+              <div className="d-flex gap-10">
+                <AiOutlineShoppingCart className="icon"/>
+                <span>{coutner}</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="navbar-mobile"></div>

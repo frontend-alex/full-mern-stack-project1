@@ -28,6 +28,30 @@
     color: var(--mainColor);
 }
 
+.d-flex{
+    display: flex;
+}
+
+
+.gap-5{
+    gap: 5px;
+}
+.gap-7{
+    gap: 7px;
+}
+.gap-8{
+    gap: 8px;
+}
+.gap-10{
+    gap: 10px;
+}
+.gap-15{
+    gap: 15px;
+}
+.gap-20{
+    gap: 20px;
+}
+
 .arrow-link-global a{
     color: gray;
     text-decoration: none;
