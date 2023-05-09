@@ -53,7 +53,7 @@ const Register = ({ setToggle }) => {
 
   return (
     <div className="register-container">
-      {toggleToast && <OkToast text="Successfully created an account" />}
+      {toggleToast && <OkToast text="Successfully created an account" duration={5000}/>}
 
       <div className="background-attachment-register backgrounda"></div>
       <div className="data-container">
@@ -143,12 +143,12 @@ const Register = ({ setToggle }) => {
 
           <div>
             <p>
-              Already have an account?
+              Already have an account? 
               <span
                 className="purple"
                 onClick={() => setToggle((prev) => !prev)}
               >
-                Log in
+                 Log in
               </span>
             </p>
           </div>

@@ -41,7 +41,7 @@ const UpdateProfile = ({ user }) => {
           setError(res.message);
           setTimeout(() => {
             window.location.href = `/dashboard/${user.username}`;
-          }, 3000);
+          }, 2000);
         }
       },
     );
@@ -50,7 +50,7 @@ const UpdateProfile = ({ user }) => {
 
   return (
     <div className="edit-profile-container">
-      {toast && <OkToast text={error} />}
+      {toast && <OkToast text={error} duration={1000} />}
 
       {/* custom component */}
       <div className="navigation">

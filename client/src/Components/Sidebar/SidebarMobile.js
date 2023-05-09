@@ -7,12 +7,13 @@ import { Data } from "../../Constants/Data";
 import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
 
 const SidebarMobile = ({ user }) => {
+  console.log(user);
   return (
     <div className="sidebar-mobile-container">
       <div className="sidebar-link">
-        {!user.isAdmin ? (
+        {user.isAdmin ? (
           <React.Fragment>
-            {Data.sidebarLinksAdmin.map((link) => {
+            {Data.sidebarLinksAdmin.map(link => {
               const { id, path, name, icons } = link;
               return (
                 <Link to={path} key={id}>

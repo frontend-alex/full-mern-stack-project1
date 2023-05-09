@@ -3,8 +3,7 @@ import React, { useState, useEffect} from "react";
 import { BsPlay } from "react-icons/bs";
 
 import CatalogCard from "../Components/CatalogCard/CatalogCard";
-import ErrorToast from "../Components/ToastMessages/ErrorToast";
-import OkToast from '../Components/ToastMessages/OkayToast'
+import ErrorToast from '../Constants/ToastMessages/ErrorToast';
 
 import useFetch from "../Hooks/useFetch";
 
@@ -31,20 +30,17 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
 
       setTimeout(() => {
         setErrorToast(false)
-      }, 3000)
+      }, 1000)
 
-      return ;
+      return;
     }
     setAdded(true)
     setCart([...cart, item])
-    setCounter(cart.length)
   };
 
   return (
     <div className="catalog-container">
-      {added &&  <OkToast text='Item added :D'/>}
-      {errorToast && <ErrorToast text='Item already in your cart!'/>}
-
+      { errorToast && <ErrorToast text='Item already in your cart!' duration={100}/> }
 
 
       <div className="catalog-header">

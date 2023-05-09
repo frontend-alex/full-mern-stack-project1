@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ErrorToast = (props) => {
   toast.error(`${props.text}`, {
     position: "top-center",
-    autoClose: 1000,
+    autoClose: props.duration,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -17,7 +17,7 @@ const ErrorToast = (props) => {
   return (
     <ToastContainer
       position="top-center"
-      autoClose={1000}
+      autoClose={props.duration}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick

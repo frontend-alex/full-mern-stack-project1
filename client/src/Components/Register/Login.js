@@ -52,7 +52,7 @@ const Login = ({ setToggle }) => {
   return (
     <div className="register-container">
 
-      {toggleToast && <OkToast text="Successfully login" />}
+      {toggleToast && <OkToast text="Successfully login" duration={5000}/>}
 
       <div className="data-container">
 
@@ -123,7 +123,7 @@ const Login = ({ setToggle }) => {
                 className="purple"
                 onClick={() => setToggle((prev) => !prev)}
               >
-                Sign up
+                 Sign up
               </span>
             </p>
           </div>

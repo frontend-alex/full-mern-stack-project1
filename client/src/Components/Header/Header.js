@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Data } from "../../Constants/Data";
 
-import ErrorToast from "../ToastMessages/ErrorToast";
+import ErrorToast from "../../Constants/ToastMessages/ErrorToast";
 
 import { IoReturnDownBackOutline } from "react-icons/io5";
 
@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header className="main-header-container">
-      {error && <ErrorToast text="Invalid Language" />}
+      {error && <ErrorToast text="Invalid Language" duration={1000}/>}
 
       <div className="header-text">
         <h1>{Data.headerData.mainHeading}</h1>

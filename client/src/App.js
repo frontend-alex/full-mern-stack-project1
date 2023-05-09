@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -31,10 +31,11 @@ const App = () => {
   const [ user ] = useAuth();
 
   const [ cart, setCart ] = useState([]);
-  const [ coutner, setCounter ] = useState(cart.length )
+  const [ coutner, setCounter ] = useState(cart.length)
 
-
-
+  useEffect(() => {
+    setCounter(cart.length)
+  }, [cart])
 
   return (
     <div className='app-container'>

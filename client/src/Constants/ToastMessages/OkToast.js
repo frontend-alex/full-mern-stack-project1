@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const OkToast = (props) => {
   toast.success(`${props.text}`, {
     position: "top-center",
-    autoClose: 2000,
+    autoClose: props.duration,
     hideProgressBar: false,
     closeOnClick: true,
     draggable: true,
@@ -16,7 +16,7 @@ const OkToast = (props) => {
   return (
     <ToastContainer
       position="top-center"
-      autoClose={2000}
+      autoClose={props.duration}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
