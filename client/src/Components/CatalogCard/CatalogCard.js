@@ -11,7 +11,7 @@ const CatalogCard = ({ data, getItem, counter, setCounter }) => {
   const sale = data.price + 100;
 
   return (
-    <div className="post">
+    <div className="post postss">
       <div className="post-items">
         <Link to={`/catalog/${data.id}`}>
           <img src={data.image} />

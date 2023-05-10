@@ -9,7 +9,6 @@ import useFetch from "../../Hooks/useFetch";
 
 const Catalog = ({ coutner, setCounter, cart, setCart }) => {
   const [data, error] = useFetch("https://fakestoreapi.com/products");
-  console.log(data);
 
 
   const [errorToast, setErrorToast] = useState(false);
@@ -39,10 +38,6 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
     setCart([...cart, item]);
   };
 
-
-  useEffect(() => {
-    
-  })
 
   return (
     <div className="catalog-container">

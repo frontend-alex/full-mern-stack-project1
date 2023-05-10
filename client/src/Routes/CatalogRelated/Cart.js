@@ -10,6 +10,7 @@ const Cart = ({ cart, setCart }) => {
 
   const handlePrice = () => {
     let all = 0;
+    
     cart.map((item) => {
       all += item.price;
     });

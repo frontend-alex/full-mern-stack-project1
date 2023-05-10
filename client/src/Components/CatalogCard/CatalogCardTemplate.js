@@ -4,30 +4,32 @@ import { Link } from "react-router-dom";
 
 import { BsBagPlus } from "react-icons/bs";
 
-const CatalogCardTemplate = ({ image }) => {
+const CatalogCardTemplate = ({ image, price, description, title }) => {
+
   // onClick={() => getItem(data)}
 
+  const sale = price + 10.99
   return (
     <div className="template-cart-container">
       <div className="post">
         <div className="post-items">
-          <Link to={`/catalog/`}>
+          <a>
             <img src={image} />
 
             <div>
-              <h2>hello</h2>
-              <p>ppp</p>
+              <h2>{title}</h2>
+              <p className="gray">{description}</p>
             </div>
-          </Link>
+          </a>
 
           <div className="post-text">
             <p>Price:</p>
             <div className="catalog-price">
               <div className="price-sale">
-                <span>5 $</span>
+                <span>{price} $</span>
                 <span className="sale">
                   {" "}
-                  <strike>10 $</strike>
+                  <strike>{Number(sale).toFixed(2)} $</strike>
                 </span>
               </div>
               <button className="catalog-add-to">

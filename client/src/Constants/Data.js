@@ -111,7 +111,7 @@ export const Data =  {
     sidebarLinksAdmin : [
         {
             id: 1,
-            name   : 'Home',
+            name   : 'Catalog',
             path   : '/catalog',
             icons  : <AiOutlineHome/>,
             active : false
