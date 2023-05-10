@@ -133,7 +133,7 @@ export const Data =  {
         {
             id: 5,
             name   : 'Post an Ad',
-            path   : '/post-ad',
+            path   : '/dashboard/catalog-item',
             icons  : <IoCreateOutline/>,
             active : false
         },

@@ -1,77 +1,88 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
 //components
-import Navbar from './Components/Navbar/Navbar';
-import LandingPage from './Routes/LandingPage';
-import MakeAccount from './Routes/MakeAccount';
+import Navbar from "./Components/Navbar/Navbar";
+import LandingPage from "./Routes/LandingPage";
+import MakeAccount from "./Routes/MakeAccount";
 
-import Dashboard  from './Routes/Dashboard';
-import ErrorPage from './Routes/ErrorPage';
-import UpdateProfile from './Routes/UpdateProfile';
+import Dashboard from "./Routes/Dashboard";
+import ErrorPage from "./Routes/ErrorPage";
+import UpdateProfile from "./Routes/UpdateProfile";
 
-import Catalog from './Routes/Catalog';
-import PostAd from './Routes/PostAd';
-import Cart from './Routes/Cart';
-
-
-import CatalogProduct from './Routes/CatalogProduct';
+//catalog
+import Catalog from "./Routes/CatalogRelated/Catalog";
+import Cart from "./Routes/CatalogRelated/Cart";
+import CatalogProduct from "./Routes/CatalogRelated/CatalogProduct";
+import PostCatalogItem from "./Routes/CatalogRelated/PostCatalogItem";
 
 //hooks
-import useAuth from './Hooks/useAuth';
-import Footer from './Components/Footer/Footer';
-
-
-
-
+import useAuth from "./Hooks/useAuth";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
+  const [user] = useAuth();
 
-  const [ user ] = useAuth();
-
-  const [ cart, setCart ] = useState([]);
-  const [ coutner, setCounter ] = useState(cart.length)
+  const [cart, setCart] = useState([]);
+  const [coutner, setCounter] = useState(cart.length);
 
   useEffect(() => {
-    setCounter(cart.length)
-  }, [cart])
+    setCounter(cart.length);
+  }, [cart]);
 
   return (
-    <div className='app-container'>
-
-      <Navbar user={user} coutner={coutner}/>
+    <div className="app-container">
+      <Navbar user={user} coutner={coutner} />
 
       <Routes>
-        <Route path='/' element={<LandingPage/>}/>
-        <Route path='/register' element={<MakeAccount user={user}/>}/>
-        <Route path='/catalog' element={<Catalog 
-                                                user={user} 
-                                                coutner={coutner}  
-                                                setCounter={setCounter}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<MakeAccount user={user} />} />
+        <Route
+          path="/catalog"
+          element={
+            <Catalog
+              user={user}
+              coutner={coutner}
+              setCounter={setCounter}
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
 
-                                                cart={cart} 
-                                                setCart={setCart}
-                                        />}/>
-                                        
-        <Route path='/cart' element={<Cart 
-                                          user={user} 
-                                          cart={cart} 
-                                          setCart={setCart}
-                                      />}/>
-        <Route path='/catalog/:productId' element={<CatalogProduct/>}/>
+        <Route
+          path="/cart"
+          element={<Cart user={user} cart={cart} setCart={setCart} />}
+        />
+        <Route path="/catalog/:productId" element={<CatalogProduct />} />
 
-        { user ?   <Route path='/dashboard/:userId' element={<Dashboard  user={user}/>}/> : <Route path='/register' element={<MakeAccount/>}/>}
-        { user ?   <Route path='/edit/:userId' element={<UpdateProfile user={user} />}/>  : <Route path='/register' element={<MakeAccount/>}/>}
-        { user ?   <Route path='/post-ad' element={<PostAd/>}/>                           : <Route path='/post-add' element={<ErrorPage/>}/>}
-        
-        <Route path='*' element={<ErrorPage user={user} />}/>
+        {user ? (
+          <Route
+            path="/dashboard/:userId"
+            element={<Dashboard user={user} />}
+          />
+        ) : (
+          <Route path="/register" element={<MakeAccount />} />
+        )}
+        {user ? (
+          <Route path="/edit/:userId" element={<UpdateProfile user={user} />} />
+        ) : (
+          <Route path="/register" element={<MakeAccount />} />
+        )}
+
+        {user ? (
+          <Route path="/dashboard/catalog-item" element={<PostCatalogItem user={user}/>} />
+        ) : (
+          <Route path="/dashboard/catalog-item" element={<ErrorPage />} />
+        )}
+
+        <Route path="*" element={<ErrorPage user={user} />} />
       </Routes>
-       
 
-       <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

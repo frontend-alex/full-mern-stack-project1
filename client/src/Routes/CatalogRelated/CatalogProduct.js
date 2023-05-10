@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import useFetch from '../Hooks/useFetch';
+import useFetch from '../../Hooks/useFetch';
 
 const CatalogProduct = () => {
 

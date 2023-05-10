@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import Sidebar from "../Components/Sidebar/Sidebar";
-import useFetch from "../Hooks/useFetch";
+import { Route, Routes, useParams } from "react-router-dom";
 
-import userImg from "../assests/images/user.png";
-import useGetData from "../Hooks/useGetData";
+
+//component
+import Sidebar from "../Components/Sidebar/Sidebar";
 import SidebarMobile from "../Components/Sidebar/SidebarMobile";
+
+//hooks
+import useFetch from "../Hooks/useFetch";
+import useGetData from "../Hooks/useGetData";
+
 
 const Dashboard = ({ user }) => {
   const { logOutUser } = useGetData();
@@ -13,6 +18,7 @@ const Dashboard = ({ user }) => {
     `http://localhost:5000/profile/${user._id}`,
     {},
   );
+  
 
   return (
     <div className="dashboard-all-container">

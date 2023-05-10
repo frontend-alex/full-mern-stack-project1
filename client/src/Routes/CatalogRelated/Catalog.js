@@ -1,47 +1,54 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import { BsPlay } from "react-icons/bs";
 
-import CatalogCard from "../Components/CatalogCard/CatalogCard";
-import ErrorToast from '../Constants/ToastMessages/ErrorToast';
+import CatalogCard from "../../Components/CatalogCard/CatalogCard";
+import ErrorToast from "../../Constants/ToastMessages/ErrorToast";
 
-import useFetch from "../Hooks/useFetch";
+import useFetch from "../../Hooks/useFetch";
 
 const Catalog = ({ coutner, setCounter, cart, setCart }) => {
   const [data, error] = useFetch("https://fakestoreapi.com/products");
-
-  const [ errorToast, setErrorToast ] = useState(false);
-  const [ added, setAdded ] = useState(false)
+  console.log(data);
 
 
-  const getItem = (item) => {  
-    setAdded(false)  
+  const [errorToast, setErrorToast] = useState(false);
+  const [ added, setAdded ] = useState(false);
 
-    let added = false
+  const getItem = (item) => {
+    setAdded(false);
 
-    cart?.forEach(product => {
-      if(item.id == product.id){
-        added = true
+    let added = false;
+
+    cart?.forEach((product) => {
+      if (item.id == product.id) {
+        added = true;
       }
-    })
+    });
 
-    if(added){
-      setErrorToast(true)
+    if (added) {
+      setErrorToast(true);
 
       setTimeout(() => {
-        setErrorToast(false)
-      }, 1000)
+        setErrorToast(false);
+      }, 1000);
 
       return;
     }
-    setAdded(true)
-    setCart([...cart, item])
+    setAdded(true);
+    setCart([...cart, item]);
   };
+
+
+  useEffect(() => {
+    
+  })
 
   return (
     <div className="catalog-container">
-      { errorToast && <ErrorToast text='Item already in your cart!' duration={100}/> }
-
+      {errorToast && (
+        <ErrorToast text="Item already in your cart!" duration={100} />
+      )}
 
       <div className="catalog-header">
         <h1>
@@ -72,16 +79,19 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
       </div>
 
       <div className="catalog-post-container">
-        {data?.map((data) => (
-          <CatalogCard
-            key={data.id}
-            getItem={getItem}
-            data={data}
-
-            coutner={coutner}
-            setCounter={setCounter}
-          />
-        ))}
+        {data === undefined ? (
+          <h1 className="error-msg">No products to buy at this time:(</h1>
+        ) : (
+          data?.map((data) => (
+            <CatalogCard
+              key={data.id}
+              getItem={getItem}
+              data={data}
+              coutner={coutner}
+              setCounter={setCounter}
+            />
+          ))
+        )}
       </div>
     </div>
   );

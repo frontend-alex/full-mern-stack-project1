@@ -6,7 +6,6 @@ import useFetch from "../../Hooks/useFetch";
 import { Data } from "../../Constants/Data";
 
 import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
-
 import { FiSettings } from "react-icons/fi";
 
 import userImg from "../../assests/images/user.png";
@@ -20,7 +19,7 @@ const Sidebar = ({ user }) => {
     {},
   );
 
-  const [smallSide, setSmallSide] = useState(true);
+  const [smallSide, setSmallSide] = useState(false);
 
   return (
     <div

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Data } from "../Constants/Data";
+import { Data } from "../../Constants/Data";
 
-import CartCard from "../Components/CatalogCard/CartCard";
+import CartCard from "../../Components/CatalogCard/CartCard";
 
 const Cart = ({ cart, setCart }) => {
   const [price, setPrice] = useState(0);

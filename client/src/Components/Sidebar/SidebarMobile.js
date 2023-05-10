@@ -7,7 +7,6 @@ import { Data } from "../../Constants/Data";
 import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
 
 const SidebarMobile = ({ user }) => {
-  console.log(user);
   return (
     <div className="sidebar-mobile-container">
       <div className="sidebar-link">

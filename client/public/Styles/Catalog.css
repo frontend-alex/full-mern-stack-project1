@@ -109,10 +109,27 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-
 }
 
-.catalog-post-container .post img{
+.template-cart-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.post{
+  display: flex;
+  padding: 5px;
+  border-radius: .5em;
+  color: black;
+  text-decoration: none;
+  width: 100%;
+}
+
+
+.post img{
     width: 100%;
     vertical-align: middle;
     height: 200px;
@@ -124,29 +141,24 @@
 }
 
 
-.catalog-post-container .post{
-    display: flex;
-    padding: 5px;
-    border-radius: .5em;
-    color: black;
-    text-decoration: none;
-  }
+ 
+
+
 
   @media screen and (min-width: 40rem) {
-    .catalog-post-container .posts{
+     .posts{
         width: 50%;
     }
   }
   
   @media screen and (min-width: 56rem) {
-    .catalog-post-container .post{
+     .post{
         width: 33.3333%;
     }
 }
 
 
-
-.catalog-container .post .post-items{
+ .post .post-items{
     background-color: white;
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
     border-radius: 0.5rem;
@@ -154,43 +166,44 @@
     flex-direction: column;
     border: 1px solid rgb(191, 191, 191);
     position: relative;
-}
 
-.catalog-container .post .post-items a {
+ }
+
+ .post .post-items a {
   color: black;
   text-decoration: none;
   padding: 1em;
 }
 
-.catalog-container .post .post-items .post-text{
+ .post .post-items .post-text{
   padding: 1em;
 }
 
-.catalog-container .post .post-items .post-text p{
+ .post .post-items .post-text p{
   color: gray;
   margin-top: 30px;
   font-size: 17px;
 } 
 
-.catalog-container .post .post-items .post-text .catalog-price{
+ .post .post-items .post-text .catalog-price{
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: -20px;
 }
 
-.catalog-container .post .post-items .post-text .catalog-price span{
+ .post .post-items .post-text .catalog-price span{
   font-weight: bold;
   font-size: 25px;
 }
 
-.catalog-container .post .post-items .post-text .catalog-price .price-sale .sale{
+ .post .post-items .post-text .catalog-price .price-sale .sale{
   color: gray;
   font-size: 17px;
 
 }
 
-.catalog-container .post .post-items .catalog-add-to{
+ .post .post-items .catalog-add-to{
   padding: 10px;
 
   height: 70px;
@@ -203,7 +216,7 @@
 
   cursor: pointer;
 }
-.catalog-container .post .post-items .catalog-add-to .icon{
+ .post .post-items .catalog-add-to .icon{
   font-size: 20px;
 }
 
@@ -255,13 +268,13 @@
     .catalog-container {
         padding: 20px;
       }
-    .catalog-container .post .post-items{
+     .post .post-items{
       padding: 1em 0;
     }
     .catalog-container .catalog-sorting-conainter{
       margin-bottom: 100px;
     }
-    .catalog-container .post .post-items{
+     .post .post-items{
       border: none;
     }
 }
