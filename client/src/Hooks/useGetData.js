@@ -1,6 +1,7 @@
 const login = 'http://localhost:5000/login'
 const register = 'http://localhost:5000/register'
-const edit = 'http://localhost:5000/edit'
+const edit = 'http://localhost:5000/edit';
+const postCatalog = 'http://localhost:5000/post-catalog-item'
 
 const useGetData = () => {
 
@@ -50,12 +51,23 @@ const useGetData = () => {
         }).then(res => res.json());
       }
 
+
+
+      const postCatalogItem = ( imageUrl, title, description, price) => {
+        return fetch(postCatalog , {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({ imageUrl, title, description, price})
+        }).then(res => res.json());
+      }
+
     return {
         postRegister,
         postLogin,
         getToken,
         logOutUser,
-        updateProfile
+        updateProfile,
+        postCatalogItem
     };
 
 }

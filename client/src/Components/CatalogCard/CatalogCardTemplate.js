@@ -1,24 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
 import { BsBagPlus } from "react-icons/bs";
 
-const CatalogCardTemplate = ({ image, price, description, title }) => {
+const CatalogCardTemplate = ({
+  image,
+  price,
+  description,
+  title,
+  onchangeHandler,
+  showBtn,
+  onSubmit,
+}) => {
+  const sale = price + Number(10);
 
-  // onClick={() => getItem(data)}
-
-  const sale = price + 10.99
   return (
-    <div className="template-cart-container">
+    <form onSubmit={onSubmit} className="template-cart-container">
       <div className="post">
         <div className="post-items">
           <a>
-            <img src={image} />
-
+            <img
+              src={image}
+              className="dashboard-template-image"
+            />
             <div>
-              <h2>{title}</h2>
-              <p className="gray">{description}</p>
+              <input
+                type="url"
+                placeholder="Image url"
+                name="imageUrl"
+                onChange={onchangeHandler}
+                // onChange={(event) => {
+                //   setSelectedImage(event.target.files[0]);
+                // }}
+              />
+
+              <input
+                onChange={onchangeHandler}
+                className="input-title"
+                name="title"
+                placeholder={title}
+              />
+              <textarea
+                onChange={onchangeHandler}
+                className="gray textarea-desc"
+                name="description"
+                placeholder={description}
+              />
             </div>
           </a>
 
@@ -26,9 +54,14 @@ const CatalogCardTemplate = ({ image, price, description, title }) => {
             <p>Price:</p>
             <div className="catalog-price">
               <div className="price-sale">
-                <span>{price} $</span>
+                <input
+                  onChange={onchangeHandler}
+                  className="input-sale"
+                  name="price"
+                  placeholder={`${price} $`}
+                  type="number"
+                />
                 <span className="sale">
-                  {" "}
                   <strike>{Number(sale).toFixed(2)} $</strike>
                 </span>
               </div>
@@ -39,7 +72,10 @@ const CatalogCardTemplate = ({ image, price, description, title }) => {
           </div>
         </div>
       </div>
-    </div>
+      {showBtn && (
+        <button className="card-template-button mt-20">Create a card</button>
+      )}
+    </form>
   );
 };
 

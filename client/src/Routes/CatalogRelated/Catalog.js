@@ -8,11 +8,12 @@ import ErrorToast from "../../Constants/ToastMessages/ErrorToast";
 import useFetch from "../../Hooks/useFetch";
 
 const Catalog = ({ coutner, setCounter, cart, setCart }) => {
-  const [data, error] = useFetch("https://fakestoreapi.com/products");
 
+
+  const [data] = useFetch("http://localhost:5000/catalog-items");
 
   const [errorToast, setErrorToast] = useState(false);
-  const [ added, setAdded ] = useState(false);
+  const [added, setAdded] = useState(false);
 
   const getItem = (item) => {
     setAdded(false);
@@ -20,7 +21,7 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
     let added = false;
 
     cart?.forEach((product) => {
-      if (item.id == product.id) {
+      if (item._id == product._id) {
         added = true;
       }
     });
@@ -37,8 +38,7 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
     setAdded(true);
     setCart([...cart, item]);
   };
-
-
+  
   return (
     <div className="catalog-container">
       {errorToast && (
@@ -74,12 +74,12 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
       </div>
 
       <div className="catalog-post-container">
-        {data === undefined ? (
-          <h1 className="error-msg">No products to buy at this time:(</h1>
+        {data?.res === undefined ? (
+          <h1 className="error-msg">No products to buy at this time</h1>
         ) : (
-          data?.map((data) => (
+          data?.res?.map((data) => (
             <CatalogCard
-              key={data.id}
+              key={data._id}
               getItem={getItem}
               data={data}
               coutner={coutner}

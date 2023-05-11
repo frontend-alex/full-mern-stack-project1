@@ -60,6 +60,8 @@
   justify-content: center;
   align-items: cetner;
   margin-top: 50px;
+
+  border-radius: .5em;
 }
 
 
@@ -71,6 +73,9 @@
 }
 .cart-container .cart-checkout .promo-cart{
     width: 50%;
+}
+.cart-container .cart-checkout .promo-cart p{
+  margin-left: 20px;
 }
 .cart-container .cart-checkout .promo-cart input{
     margin-top: 20px;

@@ -10,7 +10,9 @@ import useGetData from "../../Hooks/useGetData";
 import CatalogCardTemplate from "../../Components/CatalogCard/CatalogCardTemplate";
 
 const PostCatalogItem = ({ user }) => {
-  const { logOutUser } = useGetData();
+  const { logOutUser, postCatalogItem } = useGetData();
+
+  // const [selectedImage, setSelectedImage] = useState(null);
 
   const [data, setData] = useState({
     imageUrl: "https://plainbackground.com/plain1024/abaaa5.png",
@@ -19,18 +21,30 @@ const PostCatalogItem = ({ user }) => {
     price: 50.99,
   });
 
-  useEffect(() => {
-    if (data.imageUrl == "") {
-      setData(
-        data.imageUrl == "https://plainbackground.com/plain1024/abaaa5.png",
-      );
-    }
-  }, [data.imageUrl]);
+  // useEffect(() => {
+  //   if(data.imageUrl != 'https://plainbackground.com/plain1024/abaaa5.png'){
+  //     setData(
+  //       data.imageUrl == selectedImage,
+  //     );
+  //   }
+  // }, [data.imageUrl]);
 
   const changeHandler = (e) => {
     const { value, name } = e.target;
     setData((state) => ({ ...state, [name]: value }));
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+   
+    if(window.confirm('Are you sure you want to create a new item in your catalog?')){
+      postCatalogItem(data.imageUrl, data.title, data.description, data.price)
+        .then(() => {
+          window.location.href = '/catalog'
+        })
+    }
+  }
+
 
   return (
     <div className="dashboard-all-container">
@@ -63,13 +77,27 @@ const PostCatalogItem = ({ user }) => {
             <div className="card-template-container">
               <div className="d-none">
                 <CatalogCardTemplate
-                  image={data.imageUrl}
-                  price={data.price}
-                  title={data.title}
-                  description={data.description}
+                  onchangeHandler={changeHandler}
+                  // setSelectedImage={setSelectedImage}
+                  // selectedImage={selectedImage}
+                  onSubmit={onSubmit}
+
+                  showBtn={false}
+
+                  image="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+                  price={19.99}
+                  title="White Gold Plated Princess"
+                  description="Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her."
                 />
               </div>
               <CatalogCardTemplate
+                // selectedImage={selectedImage}
+                // setSelectedImage={setSelectedImage}
+                onchangeHandler={changeHandler}
+                onSubmit={onSubmit}
+
+                showBtn={true}
+
                 image={data.imageUrl}
                 price={data.price}
                 title={data.title}
@@ -77,75 +105,21 @@ const PostCatalogItem = ({ user }) => {
               />
               <div className="d-none">
                 <CatalogCardTemplate
-                  image={data.imageUrl}
-                  price={data.price}
-                  title={data.title}
-                  description={data.description}
+                  // selectedImage={selectedImage}
+                  // setSelectedImage={setSelectedImage}
+                  onchangeHandler={changeHandler}
+                  onSubmit={onSubmit}
+
+                  showBtn={false}
+                  
+                  image="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+                  price={40.55}
+                  title="Pierced Owl Rose Gold Plated Stainless Steel Double"
+                  description="Rose Gold Plated Double Flared Tunnel Plug Earrings."
                 />
               </div>
             </div>
           </div>
-
-          {/* <div className="d-flex justify-center aling-center">
-            <form className="mt-50">
-              <h1>Add data</h1>
-              <div className="data-container-pos">
-                <div className="register-container">
-                  <div className="input-container">
-                    <input
-                      type="email"
-                      required
-                      name="imageUrl"
-                      onChange={changeHandler}
-                    />
-                    <label>Image url</label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="data-container-pos">
-                <div className="register-container">
-                  <div className="input-container">
-                    <input
-                      type="text"
-                      required
-                      name="title"
-                      onChange={changeHandler}
-                    />
-                    <label>Title</label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="data-container-pos">
-                <div className="register-container">
-                  <div className="input-container">
-                    <input
-                      type="text"
-                      required
-                      name="description"
-                      onChange={changeHandler}
-                    />
-                    <label>Description</label>
-                  </div>
-                </div>
-              </div>
-
-              <div className="data-container-pos">
-                <div className="register-container">
-                  <div className="input-container">
-                    <input
-                      type="number"
-                      required
-                      name="price"
-                      onChange={changeHandler}
-                    />
-                    <label>Price</label>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div> */}
         </div>
         <div className="dashboard-accessories"></div>
       </div>

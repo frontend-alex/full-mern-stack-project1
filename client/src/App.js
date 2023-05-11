@@ -21,15 +21,19 @@ import PostCatalogItem from "./Routes/CatalogRelated/PostCatalogItem";
 import useAuth from "./Hooks/useAuth";
 import Footer from "./Components/Footer/Footer";
 
+const cartItemFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
+
 const App = () => {
   const [user] = useAuth();
 
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartItemFromLocalStorage);
   const [coutner, setCounter] = useState(cart.length);
 
   useEffect(() => {
     setCounter(cart.length);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
 
   return (
     <div className="app-container">
@@ -71,7 +75,7 @@ const App = () => {
           <Route path="/register" element={<MakeAccount />} />
         )}
 
-        {user ? (
+        {user && user.isAdmin ? (
           <Route path="/dashboard/catalog-item" element={<PostCatalogItem user={user}/>} />
         ) : (
           <Route path="/dashboard/catalog-item" element={<ErrorPage />} />

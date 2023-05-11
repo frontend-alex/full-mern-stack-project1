@@ -25,8 +25,9 @@
 .dashboard-data{
     height: 100%;
     padding: 20px;
-    width: 60%;
+    width: 50%;
     overflow-y: scroll;
+
 }
 
 .dashboard-first-thing {
@@ -77,7 +78,7 @@
 /* main-page accessories ************************/
 
 .dashboard-accessories{
-    width: 10%;
+    width: 20%;
     background-color: rgba(0, 0, 255, 0.299);
 }
 
