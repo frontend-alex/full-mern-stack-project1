@@ -18,7 +18,9 @@ exports.getCatalogItem = (req, res) => {};
 
 exports.postCatalogItem = async (req, res) => {
   const quantity = 1;
-  const { imageUrl, title, description, price } = req.body;
+  const { imageUrl, title, description, price, owner } = req.body;
+  
+  console.log(req.body)
 
   try {
     const catalogItem = await catalogController.createOne(
@@ -27,9 +29,8 @@ exports.postCatalogItem = async (req, res) => {
       description,
       price,
       quantity,
+      owner.owner
     );
-
-    await catalogItem.save();
 
   } catch (err) {
     const errors = Object.keys(err.errors).map(

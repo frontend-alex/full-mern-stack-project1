@@ -12,7 +12,7 @@ const CatalogCard = ({ data, getItem}) => {
 
   return (
     <div className="post postss">
-      <div className="post-items">
+      <div className="post-items" style={{height:"550px"}}>
         <Link to={`/catalog/${data._id}`}>
           <img src={data.imageUrl} className="catalog-card-image"/>
 
@@ -23,7 +23,7 @@ const CatalogCard = ({ data, getItem}) => {
         </Link>
 
         
-        <div className="post-text">
+        <div className="post-text post-text-catalog">
           <p>Price:</p>
           <div className="catalog-price">
             <div className="price-sale">

@@ -38,7 +38,7 @@ const PostCatalogItem = ({ user }) => {
     e.preventDefault()
    
     if(window.confirm('Are you sure you want to create a new item in your catalog?')){
-      postCatalogItem(data.imageUrl, data.title, data.description, data.price)
+      postCatalogItem(data.imageUrl, data.title, data.description, data.price, { owner : user.username })
         .then(() => {
           window.location.href = '/catalog'
         })

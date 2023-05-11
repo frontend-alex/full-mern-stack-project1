@@ -53,11 +53,11 @@ const useGetData = () => {
 
 
 
-      const postCatalogItem = ( imageUrl, title, description, price) => {
+      const postCatalogItem = ( imageUrl, title, description, price, owner) => {
         return fetch(postCatalog , {
           method: "POST",
           headers: headers,
-          body: JSON.stringify({ imageUrl, title, description, price})
+          body: JSON.stringify({ imageUrl, title, description, price, owner})
         }).then(res => res.json());
       }
 

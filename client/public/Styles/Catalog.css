@@ -111,11 +111,13 @@
   padding: 5px;
   border-radius: 0.5em;
   text-decoration: none;
+
 }
 
 .post .catalog-card-image {
   width: 100%;
   vertical-align: middle;
+  margin-bottom: 20px;
   height: 250px;
   object-fit: contain;
   border-top-left-radius: 0.5em;
@@ -148,7 +150,6 @@
   position: relative;
 
 
-  height: 550px;
 }
 
 
@@ -160,13 +161,18 @@
 }
 
 .post .post-items .card-text{
-  padding: 1em;
+  padding: 0 1em;
 }
-.post .post-items .post-text {
+
+.post .post-items .post-text-catalog {
   padding: 1em;
   position: absolute;
   width: 100%;
   bottom: 0%;
+}
+
+.post .post-items .post-text{
+  padding: 1em;
 }
 
 .post .post-items .post-text p {
@@ -182,6 +188,7 @@
   padding: 0 1em;
   align-items: center;
   margin-top: -20px;
+
 }
 
 .post .post-items .post-text .catalog-price span {
@@ -190,7 +197,7 @@
 }
 .post .post-items .post-text .catalog-price .price-sale{
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
 }
 .post .post-items .post-text .catalog-price .price-sale .sale {
