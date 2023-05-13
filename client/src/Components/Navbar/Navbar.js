@@ -34,12 +34,12 @@ const Navbar = ({ user, coutner }) => {
       document.documentElement.scrollTop > 60
     ) {
       ref.current.style.background = "white";
-      ref.current.style.boxShadow = '0 20px 40px -14px rgba(0,0,0,0.25)'
-      ref.current.style.zIndex= '4'
+      ref.current.style.boxShadow = "0 20px 40px -14px rgba(0,0,0,0.25)";
+      ref.current.style.zIndex = "4";
     } else {
       ref.current.style.background = "transparent";
-      ref.current.style.boxShadow = 'none'
-      ref.current.style.zIndex= '-1'
+      ref.current.style.boxShadow = "none";
+      ref.current.style.zIndex = "-1";
     }
   }
 
@@ -102,16 +102,61 @@ const Navbar = ({ user, coutner }) => {
             </button>
           )}
           <div className="navbar-cart">
-            <Link to='/cart'>
+            <Link to="/cart">
               <div className="d-flex gap-10">
-                <AiOutlineShoppingCart className="icon"/>
+                <AiOutlineShoppingCart className="icon" />
                 <span>{coutner}</span>
               </div>
             </Link>
           </div>
         </div>
       </div>
-      <div className="navbar-mobile"></div>
+      <div className="navbar-mobile">
+        <div className="navbar-mobile-container">
+          <div className="mobile-navbar-logo">
+            <img src={img} onClick={() => (window.location.href = "/")} />
+          </div>
+          <div className="mobile-navbar-links">
+            {!user ? (
+              Data.navbarLinks.map((link) => {
+                const { id, name, path, icon, active } = link;
+
+                return (
+                  <li key={id}>
+                    <Link to={path}>{name}</Link>
+                  </li>
+                );
+              })
+            ) : (
+              <React.Fragment>
+                {Data.navbarLinksLogged.map((link) => {
+                  const { id, name, path, icon, active } = link;
+
+                  return (
+                    <li key={id}>
+                      <Link to={path}>{name}</Link>
+                    </li>
+                  );
+                })}
+                <li>
+                  <Link to={`/dashboard/${user.username}`}>Dashboard</Link>
+                </li>
+                <li>
+                  <Link to={`/edit/${user._id}`}>Edit Profile</Link>
+                </li>
+              </React.Fragment>
+            )}
+          </div>
+          <div className="mobile-navbar-cart">
+            <Link to="/cart">
+              <div className="d-flex gap-10">
+                <AiOutlineShoppingCart className="icon" />
+                <span>{coutner}</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

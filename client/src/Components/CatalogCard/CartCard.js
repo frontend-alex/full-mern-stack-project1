@@ -15,25 +15,45 @@ const CartCard = ({ item, cart, setCart, handleChange }) => {
 
   return (
     <div className="cart-inner">
-      <div className="d-flex justify-between  cart-card aling-center">
+      <div className="cart-card">
         <img src={imageUrl} />
 
         <div className="card-text">
           <h2>{shortH1}</h2>
           <p className="gray">{shortDesc}</p>
-          <span>{price} $</span>
+          <span className="button-pos-pc">{price} $</span>
+
+          <div className="buttons-pos-mobile">
+            <div className="d-flex justify-cetner aling-center gap-20 buttons-pos-pc">
+              <span>{price} $</span>
+              <div className="d-flex quantity-container gap-20 aling-center">
+                <button onClick={() => handleChange(item, -1)}>-</button>
+                <span style={{fontSize:'16px'}}>{item.quantity}</span>
+                <button onClick={() => handleChange(item, +1)}>+</button>
+              </div>
+
+              <BsFillTrashFill
+                className="icon"
+                onClick={() => filterCart(_id)}
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="d-flex quantity-container gap-20 aling-center">
-          <button onClick={() => handleChange(item, -1)}>-</button>
-          <span>{item.quantity}</span>
-          <button onClick={() => handleChange(item, +1)}>+</button>
-        </div>
+        <div className="button-pos-pc">
+          <div className="d-flex justify-cetner aling-center gap-20">
+            <div className="d-flex quantity-container gap-20 aling-center">
+              <button onClick={() => handleChange(item, -1)}>-</button>
+              <span>{item.quantity}</span>
+              <button onClick={() => handleChange(item, +1)}>+</button>
+            </div>
 
-        <BsFillTrashFill className="icon" onClick={() => filterCart(_id)} />
+            <BsFillTrashFill className="icon" onClick={() => filterCart(_id)} />
+          </div>
+        </div>
       </div>
 
-      <hr className="mt-20" />
+      <hr className="mb-20 mt-20" />
     </div>
   );
 };
