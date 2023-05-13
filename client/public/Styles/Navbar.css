@@ -143,6 +143,15 @@
     .navbar-container .navbar-pc{
         display: none;
     }
+    .navbar-mobile .navbar-mobile-container{
+        background-color: white;
+        height: 100vh;
+        width: 300px;
+    }
+    .navbar-mobile .mobile-navbar-logo img{
+        width: 100px;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 900px) {
