@@ -2,7 +2,9 @@
   --mainColor: #6c63ff;
   --circleColor: #6b63ffa6;
 }
-
+.promo-hint{
+  float:right;
+}
 .cart-container {
   padding: 0 300px;
   position: relative;

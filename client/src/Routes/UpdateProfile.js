@@ -53,7 +53,7 @@ const UpdateProfile = ({ user }) => {
       {toast && <OkToast text={error} duration={1000} />}
 
       {/* custom component */}
-      <div className="navigation">
+      {/* <div className="navigation">
         <div className="home-btn">
           <Link to={`/dashboard/${user.username}`} className="">
             Dashboard <IoReturnDownBackOutline className="icon" />{" "}
@@ -65,7 +65,7 @@ const UpdateProfile = ({ user }) => {
             Catalog
           </Link>
         </div>
-      </div>
+      </div> */}
       {/* custom  component */}
 
       <div className="register-container">
