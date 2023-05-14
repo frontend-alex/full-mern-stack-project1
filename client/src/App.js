@@ -21,7 +21,7 @@ import PostCatalogItem from "./Routes/CatalogRelated/PostCatalogItem";
 import useAuth from "./Hooks/useAuth";
 import Footer from "./Components/Footer/Footer";
 
-const cartItemFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
+const cartItemFromLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];
 
 const App = () => {
   const [user] = useAuth();
@@ -31,13 +31,12 @@ const App = () => {
 
   useEffect(() => {
     setCounter(cart.length);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
 
   return (
     <div className="app-container">
-      <Navbar user={user} coutner={coutner} />
+        <Navbar user={user} coutner={coutner} />
 
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -76,7 +75,10 @@ const App = () => {
         )}
 
         {user && user.isAdmin ? (
-          <Route path="/dashboard/catalog-item" element={<PostCatalogItem user={user}/>} />
+          <Route
+            path="/dashboard/catalog-item"
+            element={<PostCatalogItem user={user} />}
+          />
         ) : (
           <Route path="/dashboard/catalog-item" element={<ErrorPage />} />
         )}

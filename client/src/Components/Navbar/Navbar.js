@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { Data } from "../../Constants/Data";
 
 import { BsPlus } from "react-icons/bs";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-
-import useAuth from "../../Hooks/useAuth";
-import useFetch from "../../Hooks/useFetch";
+import { AiOutlineShoppingCart, AiOutlineEdit } from "react-icons/ai";
+import { HiOutlineBars3BottomRight } from 'react-icons/hi2';
+import { RxDashboard } from "react-icons/rx";
 
 const Navbar = ({ user, coutner }) => {
   const img =
@@ -23,6 +22,11 @@ const Navbar = ({ user, coutner }) => {
   // }, [location.pathname]);
 
   const ref = useRef();
+
+
+  const toggle = () => {
+    document.getElementById('sidebar').classList.toggle('active')
+  }
 
   window.onscroll = function () {
     OnScrol();
@@ -112,10 +116,18 @@ const Navbar = ({ user, coutner }) => {
         </div>
       </div>
       <div className="navbar-mobile">
-        <div className="navbar-mobile-container">
+        <div className="d-flex justify-between aling-center mobile-non-nav">
           <div className="mobile-navbar-logo">
             <img src={img} onClick={() => (window.location.href = "/")} />
           </div>
+          <HiOutlineBars3BottomRight className="icon" onClick={toggle}/>
+        </div>
+        <div id='sidebar' className="navbar-mobile-container">
+          <div className="mobile-navbar-logo">
+            <img src={img} onClick={() => (window.location.href = "/")} />
+          </div>
+
+          <hr style={{margin: '10px 20px'}} />
           <div className="mobile-navbar-links">
             {!user ? (
               Data.navbarLinks.map((link) => {
@@ -123,6 +135,7 @@ const Navbar = ({ user, coutner }) => {
 
                 return (
                   <li key={id}>
+                    <i className="icon">{icon}</i>
                     <Link to={path}>{name}</Link>
                   </li>
                 );
@@ -134,20 +147,39 @@ const Navbar = ({ user, coutner }) => {
 
                   return (
                     <li key={id}>
+                      <i className="icon">{icon}</i>
                       <Link to={path}>{name}</Link>
                     </li>
                   );
                 })}
                 <li>
+                  <RxDashboard className="icon" />
                   <Link to={`/dashboard/${user.username}`}>Dashboard</Link>
                 </li>
                 <li>
+                  <AiOutlineEdit className="icon" />
                   <Link to={`/edit/${user._id}`}>Edit Profile</Link>
                 </li>
               </React.Fragment>
             )}
           </div>
-          <div className="mobile-navbar-cart">
+
+          <hr style={{margin: '10px 20px'}} />
+
+          <div className="button-navbar-mobile-container">
+            {!user ? (
+              <button
+                className="button-navbar-mobile"
+                onClick={() => (window.location.href = "/register")}
+              >
+                Create An Account
+              </button>
+            ) : (
+             ''
+            )}
+          </div>
+
+          <div className="mobile-navbar-cart ">
             <Link to="/cart">
               <div className="d-flex gap-10">
                 <AiOutlineShoppingCart className="icon" />

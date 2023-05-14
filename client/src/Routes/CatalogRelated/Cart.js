@@ -1,46 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Data } from "../../Constants/Data";
 
 import CartCard from "../../Components/CatalogCard/CartCard";
 
-import { AiOutlineRight } from 'react-icons/ai';
-
+import { AiOutlineRight } from "react-icons/ai";
 
 const Cart = ({ cart, setCart }) => {
-  const [price, setPrice] = useState(0);
+  const [products, SetProducts] = useState(cart);
 
-
-  const handlePrice = () => {
-    let all = 0;
-    
-    cart.map((item) => {
-      all += item.price * item.quantity
-    });
-
-    setPrice(all);
-  };
+  //---------cart amount price--------//
+  const cartTotalAmount = products.reduce(
+    (acc, data) => acc + data.price * data.quantity,
+    0,
+  );
+  //---------cart amount price--------//
 
   const handleChange = (item, d) => {
-    let ind = -1
+    let ind = -1;
     cart.forEach((data, index) => {
-      if(data._id === item._id){
+      if (data._id === item._id) {
         ind = index;
       }
-    })
+    });
 
     const tempArr = cart;
-    tempArr[ind].quantity += d; 
-    if(tempArr[ind].quantity === 0){
-      tempArr[ind].quantity = 1
+    tempArr[ind].quantity += d;
+    if (tempArr[ind].quantity === 0) {
+      tempArr[ind].quantity = 1;
     }
 
-    setCart([...tempArr])
+    setCart([...tempArr]);
   };
-
-  useEffect(() => {
-    handlePrice();
-  });
-
 
   let tax = 5;
 
@@ -51,7 +41,10 @@ const Cart = ({ cart, setCart }) => {
       <div className="d-flex justify-between gray">
         <div className="gap-10 d-flex mt-20 aling-center">
           <span>Home</span>
-          <span> <AiOutlineRight/> </span>
+          <span>
+            {" "}
+            <AiOutlineRight />{" "}
+          </span>
           <span>Shopping cart</span>
         </div>
 
@@ -65,7 +58,13 @@ const Cart = ({ cart, setCart }) => {
         <h1 className="cart-error">No items in your cart!</h1>
       ) : (
         cart.map((item) => (
-          <CartCard item={item} key={item._id} cart={cart} setCart={setCart}  handleChange={handleChange}/>
+          <CartCard
+            item={item}
+            key={item._id}
+            cart={cart}
+            setCart={setCart}
+            handleChange={handleChange}
+          />
         ))
       )}
 
@@ -84,13 +83,13 @@ const Cart = ({ cart, setCart }) => {
         </div>
         <div className="total-money">
           <p className="gray">
-            Subtotal <span className="gray">{price}$</span>
+            Subtotal <span className="gray">{cartTotalAmount}$</span>
           </p>
           <p className="gray">
             Tax <span className="gray">{tax}$</span>
           </p>
           <h3>
-            Total <span>{price + tax}$</span>
+            Total <span>{cartTotalAmount + tax}$</span>
           </h3>
           <button>Check out</button>
         </div>

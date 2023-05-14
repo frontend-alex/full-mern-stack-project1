@@ -323,6 +323,9 @@
 }
 
 @media screen and (max-width: 900px) {
+  .catalog-container {
+    margin-top: 100px;
+  }
   .catalog-container .catalog-sorting-conainter {
     flex-wrap: wrap;
   }

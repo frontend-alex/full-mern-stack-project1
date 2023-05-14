@@ -1,8 +1,9 @@
-import { AiOutlineHome, AiOutlineEdit} from 'react-icons/ai';
+import { AiOutlineHome, AiOutlineContacts, AiOutlineMore} from 'react-icons/ai';
+import { BiBookAlt } from 'react-icons/bi'
 import { RxDashboard } from 'react-icons/rx';
 import { BsClipboardPulse } from 'react-icons/bs';
-import { SiSimpleanalytics } from 'react-icons/si';
 import { IoCreateOutline } from 'react-icons/io5';
+
 
 import airfoce from '../assests/images/airfoce.png'
 import yeezy500 from '../assests/images/yeezy500.png'
@@ -17,21 +18,24 @@ export const Data =  {
             name   : 'Catalog',
             path   : '/catalog',
             icons  : '',
-            active : false
+            active : false,
+            icon   : <BiBookAlt/>,
         },
         {
             id: 2,
             name   : 'About',
             path   : '/about',
             icons  : '',
-            active : false
+            active : false,
+            icon   : <AiOutlineMore/>,
         },
         {
             id: 3,
             name   : 'Contact',
             path   : '/contact',
             icons  : '',
-            active : false
+            active : false,
+            icon   : <AiOutlineContacts/>,
         },
     ],
     navbarLinksLogged : [
@@ -40,21 +44,24 @@ export const Data =  {
             name   : 'Catalog',
             path   : '/catalog',
             icons  : '',
-            active : false
+            active : false,
+            icon   : <BiBookAlt/>,
         },
         {
             id: 2,
             name   : 'About',
             path   : '/about',
             icons  : '',
-            active : false
+            active : false,
+            icon   :  <AiOutlineMore/>,
         },
         {
             id: 3,
             name   : 'Contact',
             path   : '/contact',
             icons  : '',
-            active : false
+            active : false,
+            icon   : <AiOutlineContacts/>,
         },
     ],
 

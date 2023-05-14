@@ -212,3 +212,10 @@
         padding: 0 20px;
     }  
 }
+
+
+@media screen and (max-width: 900px) {
+    .main-header-container{
+        margin-top: 150px;
+    }
+}

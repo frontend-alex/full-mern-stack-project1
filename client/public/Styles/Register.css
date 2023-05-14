@@ -6,6 +6,9 @@
 .make-account-container{
     height: 100vh;
     width: 100%;
+    z-index: 100;
+    background-color: white;
+    position: relative;
 }
 
 
@@ -40,7 +43,8 @@
 .register-container .data-container{
     width: 50%;
     height: 100vh;
-    z-index: 1;
+    z-index:1;
+    position: relative;
 }
 
 
@@ -70,7 +74,10 @@
     position: absolute;
     top: 0;
     padding: 40px;
+    
     background-color: white;
+    z-index: 1;
+
 }
 .data-container .navigation .home-btn{
     color: gray;
@@ -118,11 +125,12 @@
 
 
 
-
+.data-container-pos{
+    width: 420px;
+}
 
 
 .data-container-pos .register-text{
-    width: 420px;
     margin-bottom: 20px;
     text-align: center;
     margin-bottom: 100px;
@@ -237,16 +245,21 @@
         width: 100%;
       
     }
-    .data-container-pos .register-text{
-        width: 300px;
-        text-align: center;
-        margin-top: 150px;
-       
-    }
     .data-container-pos .input-container input{
         width: 90%;
     }
     .data-container-pos .input-container .button-regi{
+        width: 300px;
+    }
+    .data-container-pos{
+        margin-top: 50px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .data-container-pos{
+        margin-top: 100px;
         width: 300px;
     }
 }
