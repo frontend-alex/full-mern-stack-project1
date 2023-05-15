@@ -10,41 +10,10 @@ import useFetch from "../../Hooks/useFetch";
 const Catalog = ({ coutner, setCounter, cart, setCart }) => {
 
 
-  const [data] = useFetch("http://localhost:5000/catalog-items");
+  const [data] = useFetch("http://localhost:5000/catalog");
 
-  const [errorToast, setErrorToast] = useState(false);
-  const [added, setAdded] = useState(false);
-
-  const getItem = (item) => {
-    setAdded(false);
-
-    let added = false;
-
-    cart?.forEach((product) => {
-      if (item._id == product._id) {
-        added = true;
-      }
-    });
-
-    if (added) {
-      setErrorToast(true);
-
-      setTimeout(() => {
-        setErrorToast(false);
-      }, 1000);
-
-      return;
-    }
-    setAdded(true);
-    setCart([...cart, item]);
-  };
-  
   return (
     <div className="catalog-container">
-      {errorToast && (
-        <ErrorToast text="Item already in your cart!" duration={100} />
-      )}
-
       <div className="catalog-header">
         <h1>
           Premuim Shoes from From Manifacturer
@@ -58,7 +27,7 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
         </div>
       </div>
 
-      <div className="catalog-sorting-conainter">
+      {/* <div className="catalog-sorting-conainter">
         <div className="box-1">
           <input required placeholder="200$-500$" />
           <label>Price:</label>
@@ -71,16 +40,15 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
           <input required placeholder="Purple" />
           <label>Color:</label>
         </div>
-      </div>
+      </div> */}
 
-      <div className="catalog-post-container">
+      <div className="catalog-post-container mt-50">
         {data?.res === undefined ? (
           <h1 className="error-msg">No products to buy at this time</h1>
         ) : (
           data?.res?.map((data) => (
             <CatalogCard
               key={data._id}
-              getItem={getItem}
               data={data}
               coutner={coutner}
               setCounter={setCounter}

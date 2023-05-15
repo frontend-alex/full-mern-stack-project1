@@ -13,6 +13,12 @@
   width: 100%;
 }
 
+
+.cart-items-container{
+  height: 400px;
+  overflow-y: scroll;
+}
+
 .cart-container .cart-inner {
   margin-top: 20px;
 }
@@ -42,6 +48,7 @@
 
 .cart-inner .cart-card .card-text span {
   font-size: 30px;
+  color: gray;
 }
 .cart-inner .cart-card .quantity-container button {
   background-color: none;
@@ -80,38 +87,6 @@
 .cart-container .cart-checkout{
     padding: 50px 0;
 }
-.cart-container .cart-checkout .promo-cart{
-    width: 50%;
-}
-.cart-container .cart-checkout .promo-cart p{
-  margin-left: 20px;
-}
-.cart-container .cart-checkout .promo-cart input{
-    margin-top: 20px;
-
-}
-
-.cart-container .cart-checkout .promo-cart button{
-    width: 120px;
-    height: 60px;
-    margin-left: 10px;
-
-    background-color: var(--mainColor);
-    border: 1px solid var(--mainColor);
-    color: white;
-
-    border-radius: .5em;
-
-    cursor: pointer;
-
-    transition: .4s;
-}
-
-.cart-container .cart-checkout .promo-cart button:hover{
-    background-color: white;
-    border: 1px solid var(--mainColor);
-    color: var(--mainColor);
-}
 
 .cart-container .total-money span{
     float: right;
@@ -131,6 +106,17 @@
     cursor: pointer;
 
     transition: .4s ease-in-out;
+}
+
+.cart-container .total-money button a{
+  color: white;
+  text-decoration: none;
+
+  transition: .4s;
+}
+
+.cart-container .total-money button:hover a{
+  color: var(--mainColor);
 }
 
 .cart-container .total-money button:hover{
@@ -158,9 +144,6 @@
     padding: 10px;
   }
   .cart-container .cart-inner .cart-card img {
-    display: none;
-  }
-  .cart-container .cart-checkout .promo-cart{
     display: none;
   }
 

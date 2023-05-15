@@ -1,0 +1,75 @@
+:root{
+    --mainColor: #6C63FF;
+    --circleColor: #6b63ffa6;
+}
+
+.stripe-checkout{
+/* padding: 0 300px;
+  position: relative;
+  padding: 0 300px;
+
+  */
+  margin-top: 150px;
+  height: 70vh;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+
+}
+.stripe-checkout h1{
+    margin-bottom: 20px;
+}
+
+.stripe-checkout h2{
+    float: right;
+    margin-right: 20px;
+}
+
+.stripe-checkout h1::after{
+    content: '';
+
+    width: 100%;
+    height: 1px;
+    background-color: var(--mainColor);
+
+    margin: auto;
+    display: block;
+
+}
+
+.stripe-checkout .checkout-form{
+    padding: 20px;
+    border-radius:.5em ;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.stripe-checkout button{
+    width: 300px;
+    height: 60px;
+    margin-top: 20px;
+
+    color: var(--mainColor);
+    background-color: white;
+    border: 1px solid var(--mainColor);
+    border-radius: .5em;
+
+    transition: .4s;
+
+    cursor: pointer;
+}
+
+.stripe-checkout button:hover{
+    background-color: var(--mainColor);
+    color: white;
+    border: 1px solid var(--mainColor);
+}
+
+.complition-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+}

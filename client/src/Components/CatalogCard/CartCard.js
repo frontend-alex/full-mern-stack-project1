@@ -21,7 +21,7 @@ const CartCard = ({ item, cart, setCart, handleChange }) => {
         <div className="card-text">
           <h2>{shortH1}</h2>
           <p className="gray">{shortDesc}</p>
-          <span className="button-pos-pc">{price} $</span>
+          <span className="button-pos-pc">{price.toFixed(2)} $</span>
 
           <div className="buttons-pos-mobile">
             <div className="d-flex justify-cetner aling-center gap-20 buttons-pos-pc">

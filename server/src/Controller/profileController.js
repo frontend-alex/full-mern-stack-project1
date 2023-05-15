@@ -19,7 +19,7 @@ exports.postEditProfile = async (req, res) => {
 };
 
 exports.getProfile = async (req, res) => {
-  const { userId } = req.params
+  const { userId } = req.params;
 
   const user = await profileService.getUserId(userId);
 

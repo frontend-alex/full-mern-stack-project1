@@ -1,3 +1,9 @@
+:root{
+  --mainColor: #6C63FF;
+  --circleColor: #6b63ffa6;
+}
+
+
 .gray {
     color: gray;
 }
@@ -54,4 +60,28 @@
 
 .mt-50{
   margin-top: 50px;
+}
+
+.red {
+  color: red;
+}
+
+.purple{
+  color: var(--mainColor);
+}
+
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.mb-30{
+  margin-bottom: 30px;
+}
+
+.mb-40{
+  margin-bottom: 40px;
+}
+
+.mb-50{
+  margin-bottom: 50px;
 }

@@ -1,5 +1,5 @@
 import { AiOutlineHome, AiOutlineContacts, AiOutlineMore} from 'react-icons/ai';
-import { BiBookAlt } from 'react-icons/bi'
+import { BiBookAlt, BiPackage } from 'react-icons/bi'
 import { RxDashboard } from 'react-icons/rx';
 import { BsClipboardPulse } from 'react-icons/bs';
 import { IoCreateOutline } from 'react-icons/io5';
@@ -106,14 +106,14 @@ export const Data =  {
             path   : '/catalog',
             icons  : <AiOutlineHome/>,
             active : false
-        },
+        },      
         {
-            id: 2,
-            name   : 'Post an Ad',
-            path   : '/post',
-            icons  : <IoCreateOutline/>,
+            id: 1,
+            name   : 'Orders',
+            path   : '/orders',
+            icons  : <BiPackage/>,
             active : false
-        },        
+        },      
     ],
     sidebarLinksAdmin : [
         {
