@@ -14,7 +14,6 @@ router.post('/post-catalog-item', catalogController.postCatalogItem);
 
 
 //STRIPE API
-router.get('/config', stripeController.getCfg)
-router.post('/create-payment', stripeController.createPayment);
+router.post('/create-payment', stripeController.createPaymentSession);
 
 module.exports = router;

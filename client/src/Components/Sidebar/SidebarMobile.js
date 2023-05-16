@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Data } from "../../Constants/Data";
 
-import { AiOutlinePlus, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineEdit } from "react-icons/ai";
 
 const SidebarMobile = ({ user }) => {
   return (

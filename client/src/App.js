@@ -20,8 +20,8 @@ import PostCatalogItem from "./Routes/CatalogRelated/PostCatalogItem";
 //hooks
 import useAuth from "./Hooks/useAuth";
 import Footer from "./Components/Footer/Footer";
-import Payment from "./Routes/Payment";
 import Complition from "./Routes/CatalogRelated/Complition";
+
 
 const cartItemFromLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -107,15 +107,6 @@ const App = () => {
           />
         }
 
-        
-        {cartTotalAmount > 0 ? (
-          <Route
-            path="/payment"
-            element={<Payment cartTotalAmount={cartTotalAmount} />}
-          />
-        ) : (
-          <Route path="/payment" element={<ErrorPage />} />
-        )}
         <Route path="*" element={<ErrorPage user={user} />} />
       </Routes>
 

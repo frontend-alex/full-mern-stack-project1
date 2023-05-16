@@ -9,8 +9,14 @@ const CartCard = ({ item, cart, setCart, handleChange }) => {
   const shortDesc = description?.slice(0, 50) + "...";
 
   const filterCart = (id) => {
-    const filteredCart = cart.filter((c) => c._id !== id);
-    setCart(filteredCart);
+    if (
+      window.confirm(
+        "Are you sure you want to remove this items from your cart?",
+      )
+    ) {
+      const filteredCart = cart.filter((c) => c._id !== id);
+      setCart(filteredCart);
+    }
   };
 
   return (
@@ -28,7 +34,7 @@ const CartCard = ({ item, cart, setCart, handleChange }) => {
               <span>{price} $</span>
               <div className="d-flex quantity-container gap-20 aling-center">
                 <button onClick={() => handleChange(item, -1)}>-</button>
-                <span style={{fontSize:'16px'}}>{item.quantity}</span>
+                <span style={{ fontSize: "16px" }}>{item.quantity}</span>
                 <button onClick={() => handleChange(item, +1)}>+</button>
               </div>
 

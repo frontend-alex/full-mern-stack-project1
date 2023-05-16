@@ -10,6 +10,8 @@ import yeezy500 from '../assests/images/yeezy500.png'
 import yeezy700 from '../assests/images/yeezy700.png'
 import newbalance from '../assests/images/new-balance.png'
 
+import emptyCart from '../assests/images/emptyCart.png'
+
 
 export const Data =  {
     navbarLinks : [
@@ -108,7 +110,7 @@ export const Data =  {
             active : false
         },      
         {
-            id: 1,
+            id: 2,
             name   : 'Orders',
             path   : '/orders',
             icons  : <BiPackage/>,
@@ -123,6 +125,13 @@ export const Data =  {
             icons  : <AiOutlineHome/>,
             active : false
         },
+        {
+            id: 2,
+            name   : 'Orders',
+            path   : '/orders',
+            icons  : <BiPackage/>,
+            active : false
+        }, 
         {
             id: 3,
             name   : 'Dashboard',
@@ -150,6 +159,13 @@ export const Data =  {
         cartH1: "Shopping cart.",
         items: "items in the bag.",
         promo: "Have a Promo code?"
+    },
+
+    emptyCartError : {
+        img : emptyCart,
+        h1  : 'Oops! Your cart is empty!',
+        p   : 'Looks like you haven`t added anything to your cart yet.',
+        button : 'Show now'
     }
 }
 

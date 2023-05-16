@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
+import useAuth from "../../Hooks/useAuth";
+
 import { Data } from "../../Constants/Data";
+
 import CartCard from "../../Components/CatalogCard/CartCard";
+import CheckOutButton from "../../Components/StripeCheckOut/CheckOutButton";
 
 import { AiOutlineRight } from "react-icons/ai";
-
-const setPromoCodeStatus =
-  JSON.parse(localStorage.getItem("promoCode")) || false;
+import { BsArrowLeft } from "react-icons/bs";
 
 const Cart = ({ cart, setCart, cartTotalAmount }) => {
-  //---------cart amount price--------//
-
-  const [afterPromoPrice, setAfterPromoPrice] = useState(0);
+  const [user] = useAuth();
 
   let tax = cartTotalAmount * 0.2;
-
-  //---------cart amount price--------//
 
   //----------cart chaning price -----//
 
@@ -38,6 +36,16 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
   };
   //----------cart chaning price -----//
 
+  const clearCart = () => {
+    if (
+      window.confirm(
+        "Are you sure you want to remove all your items from the cart?",
+      )
+    ) {
+      setCart([]);
+    }
+  };
+
   return (
     <div className="cart-container">
       <h1>{Data.shoppingCartText.cartH1}</h1>
@@ -46,13 +54,12 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
         <div className="gap-10 d-flex mt-20 aling-center">
           <span>Home</span>
           <span>
-            {" "}
-            <AiOutlineRight />{" "}
+            <AiOutlineRight />
           </span>
           <span>Shopping cart</span>
         </div>
 
-        <span>
+        <span className="mt-20">
           {cart.length} {Data.shoppingCartText.items}
         </span>
       </div>
@@ -61,7 +68,14 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
 
       <div className="cart-items-container">
         {cart.length === 0 ? (
-          <h1 className="cart-error">No items in your cart!</h1>
+          <div className="shopping-cart-error-container">
+            <img src={Data.emptyCartError.img} />
+            <h1 className="purple">{Data.emptyCartError.h1}</h1>
+            <p className="gray">{Data.emptyCartError.p}</p>
+            <Link to="/catalog">
+              <button>{Data.emptyCartError.button}</button>
+            </Link>
+          </div>
         ) : (
           cart.map((item) => (
             <CartCard
@@ -76,8 +90,8 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
       </div>
 
       <div className="cart-checkout d-flex justify-between align-center">
-        {/* <div className="promo-cart">
-            <p className="gray">{Data.shoppingCartText.promo}</p> 
+        <div className="promo-cart">
+          {/* <p className="gray">{Data.shoppingCartText.promo}</p> 
               {promoUsed ? (
                 ""
               ) : (
@@ -104,19 +118,26 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
                     )}
                   </div>
                 </React.Fragment>
-              )} 
-          </div> */}
+              )}  */}
+          {cart.length === 0 ? (
+            ""
+          ) : (
+            <button className="clear-cart-btn" onClick={clearCart}>
+              <span>Clear cart</span>
+            </button>
+          )}
+        </div>
         {cartTotalAmount == 0 ? (
           ""
         ) : (
           <div className="total-money">
             <p className="gray">
-              Subtotal{" "}
+              Subtotal
               <span className="gray">{cartTotalAmount.toFixed(0)}$</span>
             </p>
-            <p className="gray">
-              VAT <span className="gray">{tax.toFixed(0)}$</span>
-            </p>
+            <strike className="gray d-flex justify-between">
+              VAT <strike className="gray">{tax.toFixed(0)}$</strike>
+            </strike>
             {/* {promoUsed ? (
             <p className="gray">
               Promo Code{" "}
@@ -128,9 +149,24 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
             ""
           )} */}
             <h3>
-              Total <span>{Number(tax + cartTotalAmount).toFixed(0)}$</span>
+              Subtotal <span>{Number(tax + cartTotalAmount).toFixed(0)}$</span>
             </h3>
-            <button><Link to='/payment'>Check out</Link></button>
+            {!user ? (
+              <button>
+                <Link to="/register">Register</Link>
+              </button>
+            ) : (
+              <Link>
+                <CheckOutButton cart={cart} />
+              </Link>
+            )}
+            <Link
+              className="d-flex align-center justify-center mt-20 gray continue-shopping"
+              to="/catalog"
+            >
+              <BsArrowLeft className="icon" />
+              <p>Continue Shopping</p>
+            </Link>
           </div>
         )}
       </div>

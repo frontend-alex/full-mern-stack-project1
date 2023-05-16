@@ -4,8 +4,10 @@ import { Data } from "../../Constants/Data";
 
 import { BsPlus } from "react-icons/bs";
 import { AiOutlineShoppingCart, AiOutlineEdit } from "react-icons/ai";
-import { HiOutlineBars3BottomRight } from 'react-icons/hi2';
+import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import { RxDashboard } from "react-icons/rx";
+
+import { RiShoppingCart2Line } from 'react-icons/ri'
 
 const Navbar = ({ user, coutner }) => {
   const img =
@@ -23,10 +25,9 @@ const Navbar = ({ user, coutner }) => {
 
   const ref = useRef();
 
-
   const toggle = () => {
-    document.getElementById('sidebar').classList.toggle('active')
-  }
+    document.getElementById("sidebar").classList.toggle("active");
+  };
 
   window.onscroll = function () {
     OnScrol();
@@ -115,19 +116,29 @@ const Navbar = ({ user, coutner }) => {
           </div>
         </div>
       </div>
+
+      {/* mobile navbar */}
+
       <div className="navbar-mobile">
         <div className="d-flex justify-between aling-center mobile-non-nav">
           <div className="mobile-navbar-logo">
-            <img src={img} onClick={() => (window.location.href = "/")} />
+            <div className="mobile-navbar-cart ">
+              <Link to="/cart">
+                <div className="d-flex gap-10">
+                  <AiOutlineShoppingCart className="icon2" />
+                  <span>{coutner}</span>
+                </div>
+              </Link>
+            </div>
           </div>
-          <HiOutlineBars3BottomRight className="icon" onClick={toggle}/>
+          <HiOutlineBars3BottomRight className="icon" onClick={toggle} />
         </div>
-        <div id='sidebar' className="navbar-mobile-container">
-          <div className="mobile-navbar-logo">
+        <div id="sidebar" className="navbar-mobile-container">
+          <div className="mobile-navbar-logo" style={{ padding: "20px" }}>
             <img src={img} onClick={() => (window.location.href = "/")} />
           </div>
 
-          <hr style={{margin: '10px 20px'}} />
+          <hr style={{ margin: "10px 20px" }} />
           <div className="mobile-navbar-links">
             {!user ? (
               Data.navbarLinks.map((link) => {
@@ -164,7 +175,7 @@ const Navbar = ({ user, coutner }) => {
             )}
           </div>
 
-          <hr style={{margin: '10px 20px'}} />
+          <hr style={{ margin: "10px 20px" }} />
 
           <div className="button-navbar-mobile-container">
             {!user ? (
@@ -175,7 +186,7 @@ const Navbar = ({ user, coutner }) => {
                 Create An Account
               </button>
             ) : (
-             ''
+              ""
             )}
           </div>
 

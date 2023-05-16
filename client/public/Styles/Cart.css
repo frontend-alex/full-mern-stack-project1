@@ -15,9 +15,46 @@
 
 
 .cart-items-container{
-  height: 400px;
+  max-height: 400px;
   overflow-y: scroll;
 }
+
+.cart-items-container .shopping-cart-error-container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.cart-items-container .shopping-cart-error-container img{
+  height: auto;
+  width: 400px;
+}
+
+.cart-items-container .shopping-cart-error-container h1{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.cart-items-container .shopping-cart-error-container button{
+  height: 60px;
+  width: 120px;
+  margin-top: 20px;
+
+  background-color: transparent;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: .5em;
+
+  cursor: pointer;
+}
+
 
 .cart-container .cart-inner {
   margin-top: 20px;
@@ -65,19 +102,12 @@
   font-size: 30px;
   color: rgba(255, 0, 0, 0.611);
   cursor: pointer;
+
+  transition: .4s;
 }
 
-.cart-container .cart-error {
+.cart-inner .cart-card .icon:hover{
   color: red;
-  padding: 20px;
-  background-color: rgba(255, 0, 0, 0.222);
-
-  display: flex;
-  justify-content: center;
-  align-items: cetner;
-  margin-top: 50px;
-
-  border-radius: .5em;
 }
 
 
@@ -115,8 +145,30 @@
   transition: .4s;
 }
 
-.cart-container .total-money button:hover a{
-  color: var(--mainColor);
+.cart-container .continue-shopping{
+  text-decoration: none;
+  align-items: center;
+}
+
+.cart-container .continue-shopping .icon{
+  font-size: 20px;
+  margin-right: 20px;
+
+  transition: .4s;
+}
+
+.cart-container .continue-shopping:hover .icon{
+  transform: translateX(-20px);
+}
+
+
+.cart-container .clear-cart-btn{
+  height: 60px;
+  width: 120px;
+  border: 1px solid gray;
+  color: gray;
+  border-radius: .5em;
+  cursor: pointer;
 }
 
 .cart-container .total-money button:hover{
@@ -124,6 +176,7 @@
     color: var(--mainColor);
     border: 1px solid var(--mainColor);
 }
+
 
 @media screen and (max-width: 1350px) {
     .cart-container {
@@ -145,6 +198,15 @@
   }
   .cart-container .cart-inner .cart-card img {
     display: none;
+  }
+
+  .cart-container .cart-checkout{
+    flex-direction: column;
+  }
+
+  .cart-container .cart-checkout button{
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .cart-container .total-money{

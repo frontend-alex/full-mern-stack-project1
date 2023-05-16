@@ -31,8 +31,7 @@ const CatalogProduct = ({ cart, setCart }) => {
 
 
   const getItem = (item) => {
-    setAdded(false);
-
+    setAdded(false)
     let added = false;
 
     cart?.forEach((product) => {
@@ -43,6 +42,7 @@ const CatalogProduct = ({ cart, setCart }) => {
 
     if (added) {
       setErrorToast(true);
+      setAdded(true)
 
       setTimeout(() => {
         setErrorToast(false);
@@ -50,7 +50,6 @@ const CatalogProduct = ({ cart, setCart }) => {
 
       return;
     }
-    setAdded(true);
     setCart([...cart, item]);
   };
 
@@ -92,7 +91,11 @@ const CatalogProduct = ({ cart, setCart }) => {
             <strike> {Number(price + 50).toFixed(2)}$</strike>
           </div>
 
-          <button className="add-to-cart-btn" onClick={() => getItem(data)}>Add to Cart</button>
+          <button className="add-to-cart-btn" onClick={() => getItem(data)}>
+            <span>
+              {added ? 'Items already in your cart!' : 'Add to cart'}
+            </span>
+          </button>
         </div>
       </div>
     </div>
