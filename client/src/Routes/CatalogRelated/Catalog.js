@@ -42,6 +42,9 @@ const Catalog = ({ coutner, setCounter, cart, setCart }) => {
         </div>
       </div> */}
 
+
+      {/* <hr className="gray mt-50" /> */}
+
       <div className="catalog-post-container mt-50">
         {data?.res === undefined ? (
           <h1 className="error-msg">No products to buy at this time</h1>

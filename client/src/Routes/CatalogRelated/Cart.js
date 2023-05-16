@@ -149,7 +149,7 @@ const Cart = ({ cart, setCart, cartTotalAmount }) => {
             ""
           )} */}
             <h3>
-              Subtotal <span>{Number(tax + cartTotalAmount).toFixed(0)}$</span>
+              Subtotal <span>{Number(cartTotalAmount).toFixed(0)}$</span>
             </h3>
             {!user ? (
               <button>
