@@ -311,7 +311,10 @@
   padding: 0 300px;
   width: 100%;
 }
-
+.catalogProductInfo-container .route {
+  font-size: 14px;
+  text-align: center;
+}
 .catalogProductInfo-container .route a{
   color: gray;
   text-decoration: none;
@@ -321,21 +324,40 @@
   display: flex;
   margin-top: 50px;
   justify-content: center;
+  gap: 70px;
 }
 
-
-.catalogProductInfo-flex .product-image img{
+.catalogProductInfo-flex .product-image{
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+.catalogProductInfo-flex .product-image .main-img{
   height: 700px;
-  width:100%;
+  width: 100%;
   object-fit: cover;
 
-  border-radius: .5em;
   filter: drop-shadow(5px 5px 5px #dadada);
 }
 
+.catalogProductInfo-flex .product-image .small-images{
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.catalogProductInfo-flex .product-image .small-images img{
+  height: 100px;
+  width: 100px;
+}
+
+
 .catalogProductInfo-flex .product-data{
   display: flex;
-  width: 100%;
+  width: 60%;
   justify-content: flex-start;
   flex-direction: column;
 
@@ -349,7 +371,7 @@
 }
 .catalogProductInfo-flex .product-data .price-action span{
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 
@@ -358,10 +380,28 @@
   font-size: 20px;
 }
 
+.catalogProductInfo-flex .product-data .stock-btn{
+  height: 40px;
+  padding: 10px;
+  border-radius: .5em;
+
+  font-size: 14px;
+  color: white;
+}
+
+.catalogProductInfo-flex .product-data .nope{
+  background-color: black;
+  width: 105px;
+}
+.catalogProductInfo-flex .product-data .yes{
+  background-color: green;
+  width: 74px;
+}
+
 .catalogProductInfo-flex .product-data  .add-to-cart-btn{
   margin-top: 10px;
 
-  height: 60px;
+  height: 40px;
   background-color: white;
   
   border: 1px solid var(--mainColor);
@@ -381,12 +421,76 @@
 
 
 
+.catalogProductInfo-flex .product-data .additional-text{
+  font-size: 14px;
+  margin-top: 20px;
+} 
+
+.catalogProductInfo-flex .product-data .additional-text .p-1{
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.catalogProductInfo-flex .product-data .product-sizing-data{
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.catalogProductInfo-flex .product-data .product-sizing-data span{
+  color: gray;
+}
 
 
 
-@media screen and (max-width:900px) {
+.additional-data-container-card-catalog-id{
+  height: auto;
+  width: 100%;
+
+}
+.additional-data-container-card-catalog-id .favorites{
+  color: gray;
+  cursor: pointer;
+}
+
+.additional-data-container-card-catalog-id .favorites:hover .icon{
+  color: red;
+}
+
+.additional-data-container-card-catalog-id .favorites .icon{
+  margin-right: 10px;
+  transition: .4s;
+}
+
+.additional-data-container-card-catalog-id .custom-line-width{
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+
+
+@media screen and (max-width:1200px) {
+  
   .catalogProductInfo-container .route{
     margin-top: 0 20px;
+  }
+
+  .catalogProductInfo-flex .product-image{
+    display: block;
+  }
+
+  .catalogProductInfo-flex .product-image .small-images{
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .catalogProductInfo-flex .product-data{
+    width: 100%;
+    padding: 0;
+  }
+
+  .additional-data-container-card-catalog-id .custom-line-width{
+    width: 100%;
   }
 
   .catalogProductInfo-container .catalogProductInfo-flex{
@@ -399,8 +503,6 @@
     height: auto;
     object-fit: contain;
   }
-
-
 
 }
 
@@ -447,8 +549,6 @@
   .catalog-container .catalog-sorting-conainter .box-2 {
     margin: 20px 0;
   }
-
-
 
   .catalog-container {
     margin-top: 100px;
