@@ -21,6 +21,27 @@ const CatalogSchema = new Schema({
     type: Number,
     required: true,
   },
+  inStock: {
+    type: Boolean,
+    required: true,
+  },
+
+  itemDescription:{
+    color : {
+      type: String,
+      required: true
+    },
+    size : {
+      type: String,
+      required: true
+    },
+    condition : {
+      type: String,
+      required: true
+    },
+
+  },
+
   owner: {
     type: String, 
     required: true
